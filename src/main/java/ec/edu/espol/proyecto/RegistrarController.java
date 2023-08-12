@@ -73,12 +73,45 @@ public class RegistrarController implements Initializable {
 
     @FXML
     private void retroceder(ActionEvent event) {
-        
+       try{
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/ec/edu/espol/proyecto/proyecto.fxml"));
+            Parent root = loader.load();
+          
+            Scene scene = new Scene(root);
+            Stage stage = new Stage();
+            
+            stage.setScene(scene);
+            stage.show();
+            
+            Stage mystage = (Stage) this.btRetroceder.getScene().getWindow();
+            mystage.close();
+            
+        }
+        catch(IOException ex){
+            ex.printStackTrace();
+        } 
     }
 
     @FXML
     private void confirmarRegistro(ActionEvent event) {
-        
+        Persona usuario = new Persona( nombre.getText(), apellido.getText(),  organizacion.getText(),correo.getText(), clave.getText());
+        boolean validar = Utilitaria.validarCorreo(usuario);
+        if( validar == false){
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setHeaderText(null);
+            alert.setTitle("Info");
+            alert.setContentText("Usuario Registrado");
+            alert.showAndWait();
+            Utilitaria.guardarSerializable("usuario.ser", usuario);
+        }
+        else{
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setHeaderText(null);
+            alert.setTitle("Error");
+            alert.setContentText("Usuario No Disponible");
+            alert.showAndWait();
+            
+        }
         
     }
 
