@@ -15,6 +15,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Modality;
@@ -30,63 +31,70 @@ public class ProyectoController implements Initializable {
     @FXML
     private Button btAuntentificar;
     @FXML
+    private ImageView imageview8;
+    @FXML
+    private ImageView imageview9;
+    @FXML
     private ImageView imageview;
+
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-       
-    }    
+     mostrar();
+    }
 
     @FXML
     private void autentificar(ActionEvent event) {
-        try{
+        try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/ec/edu/espol/proyecto/autentificar.fxml"));
             Parent root = loader.load();
             AutentificarController controlador = loader.getController();
-            
+
             Scene scene = new Scene(root);
             Stage stage = new Stage();
-            
-            
+
             stage.setScene(scene);
             stage.show();
-            
+
             stage.setOnCloseRequest(e -> controlador.closeWindows());
             Stage mystage = (Stage) this.btAuntentificar.getScene().getWindow();
             mystage.close();
-            
-        }
-        catch(IOException ex){
+
+        } catch (IOException ex) {
             ex.printStackTrace();
         }
-        
+
     }
 
     @FXML
     private void registrar(MouseEvent event) {
-        try{
+        try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/ec/edu/espol/proyecto/registrar.fxml"));
             Parent root = loader.load();
             RegistrarController controlador = loader.getController();
-            
+
             Scene scene = new Scene(root);
             Stage stage = new Stage();
-            
-            
+
             stage.setScene(scene);
             stage.show();
-            
+
             stage.setOnCloseRequest(e -> controlador.closeWindows());
             Stage mystage = (Stage) this.btAuntentificar.getScene().getWindow();
             mystage.close();
-            
-        }
-        catch(IOException ex){
+
+        } catch (IOException ex) {
             ex.printStackTrace();
         }
-        
+
     }
-    
-}
+
+    private void mostrar() {
+        Image image8 = new Image("/imagenes/iniciobla.png");
+        imageview8.setImage(image8);
+        Image image9 = new Image("/imagenes/regisro.png");
+        imageview9.setImage(image9);
+      }
+    }
