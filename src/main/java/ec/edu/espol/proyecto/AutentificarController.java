@@ -19,6 +19,8 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
@@ -29,7 +31,18 @@ import javafx.stage.Stage;
  * @author Axel
  */
 public class AutentificarController implements Initializable {
-
+    
+    @FXML
+    private ImageView imageview1;
+    @FXML
+    private ImageView imageview2;
+    @FXML
+    private ImageView imageview3;
+    @FXML
+    private ImageView imageview4;
+    @FXML
+    private ImageView imageview5;
+    
     @FXML
     private PasswordField contrasena;
     @FXML
@@ -38,12 +51,15 @@ public class AutentificarController implements Initializable {
     private Button btRetroceder;
     @FXML
     private Button btConfirmarUsuario;
+    
+    
 
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        mostrarImagen();
         // TODO
     }
     
@@ -66,17 +82,31 @@ public class AutentificarController implements Initializable {
             ex.printStackTrace();
         }
     }
+    @FXML
+    private void mostrarImagen(){
+         Image image1 = new Image("/imagenes/image4.png");
+         imageview1.setImage(image1);
+         Image image2 = new Image("/imagenes/image1.png");
+         imageview2.setImage(image2);
+         Image image3 = new Image("/imagenes/image2.png");
+         imageview3.setImage(image3);
+         Image image4 = new Image("/imagenes/image3.png");
+         imageview4.setImage(image4);
+         Image image5 = new Image("/imagenes/flecha.png");
+         imageview5.setImage(image5);
+         
+    }
+
 
     @FXML
     private void retroceder(ActionEvent event) {
         
-        
     }
+    
 
     @FXML
     private void confirmarUsuario(ActionEvent event) {
         
-   
     }
-    
+  
 }

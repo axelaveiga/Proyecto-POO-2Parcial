@@ -4,50 +4,71 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
-<?import javafx.scene.layout.ColumnConstraints?>
-<?import javafx.scene.layout.GridPane?>
-<?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="300.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ec.edu.espol.proyecto.AutentificarController">
-   <center>
-      <GridPane BorderPane.alignment="CENTER">
-        <columnConstraints>
-          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="200.0" />
-          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-        </columnConstraints>
-        <rowConstraints>
-          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-          <RowConstraints minHeight="10.0" prefHeight="35.0" vgrow="SOMETIMES" />
-            <RowConstraints minHeight="10.0" prefHeight="35.0" vgrow="SOMETIMES" />
-            <RowConstraints minHeight="10.0" prefHeight="35.0" vgrow="SOMETIMES" />
-            <RowConstraints minHeight="10.0" prefHeight="35.0" vgrow="SOMETIMES" />
-          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-        </rowConstraints>
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ec.edu.espol.proyecto.AutentificarController">
+   <left>
+      <AnchorPane prefHeight="500.0" prefWidth="350.0" style="-fx-background-color: #b695c0;" BorderPane.alignment="CENTER">
          <children>
-            <Label prefHeight="47.0" prefWidth="188.0" text="Autentificar" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="BOTTOM">
+            <ImageView fx:id="imageview2" fitHeight="203.0" fitWidth="234.0" layoutX="68.0" layoutY="93.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../../../../../../../../../Downloads/image%20(8).png" />
+               </image>
+            </ImageView>
+            <Label layoutX="80.0" layoutY="262.0" prefHeight="68.0" prefWidth="220.0" text="COMPRA Y VENTA" textFill="WHITE">
                <font>
-                  <Font name="System Bold" size="29.0" />
+                  <Font name="Impact" size="30.0" />
                </font>
             </Label>
-            <Label text="Correo:" GridPane.columnIndex="1" GridPane.rowIndex="1" GridPane.valignment="BOTTOM">
+            <Label layoutX="104.0" layoutY="300.0" prefHeight="59.0" prefWidth="172.0" text="DE HEVÍCULOS" textFill="WHITE">
                <font>
-                  <Font size="15.0" />
+                  <Font name="Impact" size="30.0" />
                </font>
             </Label>
-            <Label text="Contraseña:" GridPane.columnIndex="1" GridPane.rowIndex="3" GridPane.valignment="CENTER">
+         </children></AnchorPane>
+   </left>
+   <right>
+      <AnchorPane accessibleRole="BUTTON" prefHeight="500.0" prefWidth="415.0" BorderPane.alignment="CENTER">
+         <children>
+            <Button fx:id="btRetroceder" contentDisplay="GRAPHIC_ONLY" layoutX="-8.0" layoutY="30.0" maxWidth="227.0" mnemonicParsing="false" onAction="#retroceder" prefHeight="50.0" prefWidth="93.0" style="-fx-background-color: transparent;">
                <font>
-                  <Font size="15.0" />
+                  <Font name="Impact" size="12.0" />
+               </font>
+               <graphic>
+                  <ImageView fx:id="imageview5" fitHeight="62.0" fitWidth="73.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../../../../../../../flecha.png" />
+                     </image>
+                  </ImageView>
+               </graphic></Button>
+            <PasswordField fx:id="contrasena" layoutX="111.0" layoutY="278.0" prefHeight="27.0" prefWidth="149.0" promptText="Contraseña" style="-fx-background-color: transparent; -fx-border-color: #b695c0; -fx-border-width: 0px 0px 2px 0px;" />
+            <Button fx:id="btConfirmarUsuario" layoutX="133.0" layoutY="346.0" mnemonicParsing="false" onAction="#confirmarUsuario" style="-fx-background-color: #b695c0;" text="Iniciar sesión" textFill="WHITE" />
+            <TextField fx:id="correo" layoutX="111.0" layoutY="229.0" prefHeight="27.0" prefWidth="149.0" promptText="Correo" style="-fx-background-color: transparent; -fx-border-color: #b695c0; -fx-border-width: 0px 0px 2px 0px;" />
+            <ImageView fx:id="imageview3" fitHeight="37.0" fitWidth="39.0" layoutX="75.0" layoutY="229.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../../../../../../../../../Downloads/image%20(6).png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="imageview4" fitHeight="37.0" fitWidth="39.0" layoutX="75.0" layoutY="278.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../../../../../../../../../Downloads/image%20(5).png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="imageview1" fitHeight="203.0" fitWidth="243.0" layoutX="74.0" layoutY="18.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../../../../../../../../../Downloads/image%20(4).png" />
+               </image>
+            </ImageView>
+            <Label layoutX="107.0" layoutY="171.0" prefHeight="30.0" prefWidth="150.0" text="Inicio de sesión" textFill="#b695c0">
+               <font>
+                  <Font name="MS Outlook" size="21.0" />
                </font>
             </Label>
-            <PasswordField fx:id="contrasena" GridPane.columnIndex="1" GridPane.rowIndex="4" GridPane.valignment="TOP" />
-            <TextField fx:id="correo" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-            <Button fx:id="btConfirmarUsuario" mnemonicParsing="false" onAction="#confirmarUsuario" text="Confirmar" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="5" GridPane.valignment="CENTER" />
-            <Button fx:id="btRetroceder" maxWidth="69.0" mnemonicParsing="false" onAction="#retroceder" text="Atrás" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="6" GridPane.valignment="TOP" />
          </children>
-      </GridPane>
-   </center>
+      </AnchorPane>
+   </right>
 </BorderPane>
