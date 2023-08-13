@@ -18,6 +18,8 @@ import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
@@ -43,12 +45,17 @@ public class RegistrarController implements Initializable {
     private Button btRetroceder;
     @FXML
     private Button btConfirmarRegistro;
+    @FXML
+    private ImageView imageview6;
+    @FXML
+    private ImageView imageview7;
 
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        visualimagen();
     }
     
     public void closeWindows(){
@@ -114,6 +121,12 @@ public class RegistrarController implements Initializable {
         }
         
     }
+     @FXML
+    private void visualimagen(){
+         Image image6 = new Image("/imagenes/flecha.png");
+         imageview6.setImage(image6);
+         Image image7 = new Image("/imagenes/rosalogo.png");
+         imageview7.setImage(image7);
 
-    
+    }
 }
