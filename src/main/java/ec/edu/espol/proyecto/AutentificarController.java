@@ -100,13 +100,49 @@ public class AutentificarController implements Initializable {
 
     @FXML
     private void retroceder(ActionEvent event) {
-        
+        try{
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/ec/edu/espol/proyecto/proyecto.fxml"));
+            Parent root = loader.load();
+          
+            Scene scene = new Scene(root);
+            Stage stage = new Stage();
+            
+            stage.setScene(scene);
+            stage.show();
+            
+            Stage mystage = (Stage) this.btRetroceder.getScene().getWindow();
+            mystage.close();
+            
+        }
+        catch(IOException ex){
+            ex.printStackTrace();
+        }
     }
     
 
     @FXML
     private void confirmarUsuario(ActionEvent event) {
-        
+        try {
+            boolean validar =Utilitaria.validarUsuario(correo.getText(), contrasena.getText());
+            if( validar == true){
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setHeaderText(null);
+                alert.setTitle("Info");
+                alert.setContentText("Autentificación Correcta");
+                alert.showAndWait();
+            }
+            else{
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setHeaderText(null);
+                alert.setTitle("Error");
+                alert.setContentText("Contraseña o Usuario Correcta");
+                alert.showAndWait();
+            
+        }
+            
+        } catch (NoSuchAlgorithmException ex) {
+            ex.printStackTrace();
+        }
     }
   
 }
