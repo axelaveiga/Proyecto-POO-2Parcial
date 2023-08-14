@@ -135,7 +135,7 @@ public class AutentificarController implements Initializable {
                 Alert alert = new Alert(Alert.AlertType.ERROR);
                 alert.setHeaderText(null);
                 alert.setTitle("Error");
-                alert.setContentText("Contraseña o Usuario Correcta");
+                alert.setContentText("Contraseña o Usuario Incorrecto");
                 alert.showAndWait();
             
         }
