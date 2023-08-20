@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ec.edu.espol.proyecto.RegistrarController">
+   <bottom>
+      <AnchorPane prefHeight="600.0" prefWidth="400.0" BorderPane.alignment="CENTER">
+         <children>
+            <TextField layoutX="36.0" layoutY="386.0" promptText="Modelo" style="-fx-background-color: transparent; -fx-border-color: #b695c0; -fx-border-width: 0px 0px 2px 0px;" />
+            <TextField layoutX="36.0" layoutY="338.0" promptText="Marca" style="-fx-background-color: transparent; -fx-border-color: #b695c0; -fx-border-width: 0px 0px 2px 0px;" />
+            <TextField layoutX="36.0" layoutY="287.0" promptText="Placa" style="-fx-background-color: transparent; -fx-border-color: #b695c0; -fx-border-width: 0px 0px 2px 0px;" />
+            <TextField layoutX="418.0" layoutY="287.0" promptText="Vidrios" style="-fx-background-color: transparent; -fx-border-color: #b695c0; -fx-border-width: 0px 0px 2px 0px;" />
+            <TextField layoutX="36.0" layoutY="436.0" promptText="Tipo de motor" style="-fx-background-color: transparent; -fx-border-color: #b695c0; -fx-border-width: 0px 0px 2px 0px;" />
+            <Button fx:id="btConfirmarRegistro" layoutX="436.0" layoutY="512.0" mnemonicParsing="false" onAction="#confirmarRegistro" prefHeight="40.0" prefWidth="102.0" style="-fx-background-color: #b695c0;" text="Registrar" textFill="WHITE">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Button>
+            <Button layoutY="14.0" maxWidth="69.0" mnemonicParsing="false" style="-fx-background-color: transparent;">
+               <graphic>
+                  <ImageView fx:id="imageview6" fitHeight="62.0" fitWidth="73.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../../../../../../../flecha.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <ImageView fx:id="imageview7" fitHeight="150.0" fitWidth="200.0" layoutX="201.0" layoutY="27.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../../../../../../../../../Downloads/rosalogo.png" />
+               </image>
+            </ImageView>
+            <Label layoutX="169.0" layoutY="156.0" prefHeight="68.0" prefWidth="293.0" text="Registrar vehículo" textFill="#b695c0">
+               <font>
+                  <Font name="MS Outlook" size="30.0" />
+               </font>
+            </Label>
+            <RadioButton layoutX="78.0" layoutY="234.0" mnemonicParsing="false" text="Carro" textFill="#b695c0" />
+            <RadioButton layoutX="261.0" layoutY="234.0" mnemonicParsing="false" text="Camioneta" textFill="#b695c0" />
+            <RadioButton layoutX="462.0" layoutY="234.0" mnemonicParsing="false" text="Moto" textFill="#b695c0" />
+            <TextField layoutX="226.0" layoutY="287.0" promptText="Año" style="-fx-background-color: transparent; -fx-border-color: #b695c0; -fx-border-width: 0px 0px 2px 0px;" />
+            <TextField layoutX="226.0" layoutY="338.0" promptText="Recorrido" style="-fx-background-color: transparent; -fx-border-color: #b695c0; -fx-border-width: 0px 0px 2px 0px;" />
+            <TextField layoutX="226.0" layoutY="386.0" promptText="Color" style="-fx-background-color: transparent; -fx-border-color: #b695c0; -fx-border-width: 0px 0px 2px 0px;" />
+            <TextField layoutX="226.0" layoutY="436.0" promptText="Tipo de combustible" style="-fx-background-color: transparent; -fx-border-color: #b695c0; -fx-border-width: 0px 0px 2px 0px;" />
+            <TextField layoutX="418.0" layoutY="338.0" promptText="Transmisión " style="-fx-background-color: transparent; -fx-border-color: #b695c0; -fx-border-width: 0px 0px 2px 0px;" />
+            <TextField layoutX="418.0" layoutY="386.0" promptText="Tracción" style="-fx-background-color: transparent; -fx-border-color: #b695c0; -fx-border-width: 0px 0px 2px 0px;" />
+            <TextField layoutX="418.0" layoutY="436.0" promptText="Precio" style="-fx-background-color: transparent; -fx-border-color: #b695c0; -fx-border-width: 0px 0px 2px 0px;" />
+            <Button layoutX="58.0" layoutY="502.0" mnemonicParsing="false" prefHeight="58.0" prefWidth="79.0" style="-fx-background-color: transparent;">
+               <graphic>
+                  <ImageView fitHeight="57.0" fitWidth="53.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../../../../../../../../../Downloads/Subir.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Label layoutX="133.0" layoutY="524.0" text="Subir archivo (imagen del vehículo)" textFill="#b695c0" />
+         </children>
+      </AnchorPane>
+   </bottom>
+</BorderPane>
