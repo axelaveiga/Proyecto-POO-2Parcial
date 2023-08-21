@@ -4,6 +4,8 @@
  */
 package ec.edu.espol.proyecto;
 
+import ec.edu.espol.clases.Auto;
+import ec.edu.espol.clases.Camioneta;
 import ec.edu.espol.clases.Utilitaria;
 import ec.edu.espol.clases.Vehiculo;
 import java.io.File;
@@ -116,7 +118,20 @@ public class Registrar_vehiculoController implements Initializable {
     }
         @FXML
     private void confirmarRegistro_vehiculo(ActionEvent event) {
-        Vehiculo placa = new Vehiculo( placav.getText(), marca.getText(),  modelo.getText(),tipom.getText(), Integer.valueOf(anio.getText()) , Double.valueOf(recorrido.getText()) ,  color.getText(),tipoc.getText(), Double.valueOf(precio.getText()));
+        ToggleGroup botones = new ToggleGroup();
+        carro.setToggleGroup(botones);
+        camioneta.setToggleGroup(botones);
+        moto.setToggleGroup(botones);
+        Vehiculo placa= null;
+        if (botones.getSelectedToggle().equals(moto)){
+            placa = new Vehiculo( placav.getText(), marca.getText(),  modelo.getText(),tipom.getText(), Integer.valueOf(anio.getText()) , Double.valueOf(recorrido.getText()) ,  color.getText(),tipoc.getText(), Double.valueOf(precio.getText()));  
+        } 
+         if (botones.getSelectedToggle().equals(carro)){
+            placa = new Auto( placav.getText(), marca.getText(),  modelo.getText(),tipom.getText(), Integer.valueOf(anio.getText()) , Double.valueOf(recorrido.getText()) ,  color.getText(),tipoc.getText(), vidrios.getText(),transmision.getText(),  Double.valueOf(precio.getText()));  
+        } 
+          if (botones.getSelectedToggle().equals(camioneta)){
+            placa = new Camioneta( placav.getText(), marca.getText(),  modelo.getText(),tipom.getText(), Integer.valueOf(anio.getText()) , Double.valueOf(recorrido.getText()) ,  color.getText(),tipoc.getText(), vidrios.getText(),transmision.getText(), traccion.getText(), Double.valueOf(precio.getText()));  
+          } 
         boolean validar = Utilitaria.validarPlaca(placa);
         if( validar == false){
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
@@ -134,6 +149,7 @@ public class Registrar_vehiculoController implements Initializable {
             alert.showAndWait();
             
         }
+        
         
     }
 

@@ -4,13 +4,14 @@
  */
 package ec.edu.espol.clases;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 /**
  *
  * @author Axel
  */
-public class Vehiculo {
+public class Vehiculo implements Serializable {
     private String placa;
     private String marca;
     private String modelo;

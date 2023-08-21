@@ -4,11 +4,13 @@
  */
 package ec.edu.espol.clases;
 
+import java.io.Serializable;
+
 /**
  *
  * @author Axel
  */
-public class Camioneta extends Vehiculo{
+public class Camioneta extends Vehiculo implements Serializable{
     private String vidrios;
     private String transmicion;
     private String traccion;
