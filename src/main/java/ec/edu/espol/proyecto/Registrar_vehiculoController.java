@@ -4,6 +4,8 @@
  */
 package ec.edu.espol.proyecto;
 
+import ec.edu.espol.clases.Utilitaria;
+import ec.edu.espol.clases.Vehiculo;
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
@@ -15,6 +17,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.RadioButton;
@@ -24,6 +27,7 @@ import javafx.scene.control.ToggleGroup;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+import static javafx.scene.paint.Color.color;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 
@@ -48,6 +52,24 @@ public class Registrar_vehiculoController implements Initializable {
     private RadioButton camioneta;
     @FXML
     private RadioButton moto;
+    @FXML
+    private TextField placav;
+    @FXML
+    private TextField marca;
+    @FXML
+    private TextField modelo;
+    @FXML
+    private TextField tipom;
+    @FXML
+    private TextField recorrido;
+    @FXML
+    private TextField anio;
+    @FXML
+    private TextField color;
+    @FXML
+    private TextField tipoc;
+    @FXML
+    private TextField precio;
     @FXML
     private TextField traccion;
     @FXML
@@ -91,6 +113,28 @@ public class Registrar_vehiculoController implements Initializable {
         } catch (IOException ex) {
             ex.printStackTrace();
         }
+    }
+        @FXML
+    private void confirmarRegistro_vehiculo(ActionEvent event) {
+        Vehiculo placa = new Vehiculo( placav.getText(), marca.getText(),  modelo.getText(),tipom.getText(), Integer.valueOf(anio.getText()) , Double.valueOf(recorrido.getText()) ,  color.getText(),tipoc.getText(), Double.valueOf(precio.getText()));
+        boolean validar = Utilitaria.validarPlaca(placa);
+        if( validar == false){
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setHeaderText(null);
+            alert.setTitle("Info");
+            alert.setContentText("Vehículo Registrado");
+            alert.showAndWait();
+            Utilitaria.guardarSerializable_Vehiculo("placa.ser", placa);
+        }
+        else{
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setHeaderText(null);
+            alert.setTitle("Error");
+            alert.setContentText("El vehículo no puede ser registrado");
+            alert.showAndWait();
+            
+        }
+        
     }
 
     @FXML

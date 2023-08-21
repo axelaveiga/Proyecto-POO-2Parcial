@@ -16,10 +16,10 @@
          <children>
             <TextField fx:id="modelo" layoutX="36.0" layoutY="386.0" promptText="Modelo" style="-fx-background-color: transparent; -fx-border-color: #b695c0; -fx-border-width: 0px 0px 2px 0px;" />
             <TextField fx:id="marca" layoutX="36.0" layoutY="338.0" promptText="Marca" style="-fx-background-color: transparent; -fx-border-color: #b695c0; -fx-border-width: 0px 0px 2px 0px;" />
-            <TextField layoutX="36.0" layoutY="287.0" promptText="Placa" style="-fx-background-color: transparent; -fx-border-color: #b695c0; -fx-border-width: 0px 0px 2px 0px;" />
-            <TextField layoutX="418.0" layoutY="287.0" promptText="Precio" style="-fx-background-color: transparent; -fx-border-color: #b695c0; -fx-border-width: 0px 0px 2px 0px;" />
-            <TextField layoutX="36.0" layoutY="436.0" promptText="Tipo de motor" style="-fx-background-color: transparent; -fx-border-color: #b695c0; -fx-border-width: 0px 0px 2px 0px;" />
-            <Button layoutX="436.0" layoutY="512.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="102.0" style="-fx-background-color: #b695c0;" text="Registrar" textFill="WHITE">
+            <TextField fx:id="placav" layoutX="36.0" layoutY="287.0" promptText="Placa" style="-fx-background-color: transparent; -fx-border-color: #b695c0; -fx-border-width: 0px 0px 2px 0px;" />
+            <TextField fx:id="precio" layoutX="418.0" layoutY="287.0" promptText="Precio" style="-fx-background-color: transparent; -fx-border-color: #b695c0; -fx-border-width: 0px 0px 2px 0px;" />
+            <TextField fx:id="tipom" layoutX="36.0" layoutY="436.0" promptText="Tipo de motor" style="-fx-background-color: transparent; -fx-border-color: #b695c0; -fx-border-width: 0px 0px 2px 0px;" />
+            <Button layoutX="436.0" layoutY="512.0" mnemonicParsing="false" onAction="#confirmarRegistro_vehiculo" prefHeight="40.0" prefWidth="102.0" style="-fx-background-color: #b695c0;" text="Registrar" textFill="WHITE">
                <font>
                   <Font size="18.0" />
                </font>
@@ -46,10 +46,10 @@
             <RadioButton fx:id="carro" layoutX="58.0" layoutY="234.0" mnemonicParsing="false" text="Carro" textFill="#b695c0" />
             <RadioButton fx:id="camioneta" layoutX="169.0" layoutY="234.0" mnemonicParsing="false" text="Camioneta" textFill="#b695c0" />
             <RadioButton fx:id="moto" layoutX="301.0" layoutY="234.0" mnemonicParsing="false" text="Moto" textFill="#b695c0" />
-            <TextField layoutX="226.0" layoutY="287.0" promptText="Año" style="-fx-background-color: transparent; -fx-border-color: #b695c0; -fx-border-width: 0px 0px 2px 0px;" />
-            <TextField layoutX="226.0" layoutY="338.0" promptText="Recorrido" style="-fx-background-color: transparent; -fx-border-color: #b695c0; -fx-border-width: 0px 0px 2px 0px;" />
-            <TextField layoutX="226.0" layoutY="386.0" promptText="Color" style="-fx-background-color: transparent; -fx-border-color: #b695c0; -fx-border-width: 0px 0px 2px 0px;" />
-            <TextField layoutX="226.0" layoutY="436.0" promptText="Tipo de combustible" style="-fx-background-color: transparent; -fx-border-color: #b695c0; -fx-border-width: 0px 0px 2px 0px;" />
+            <TextField fx:id="anio" layoutX="226.0" layoutY="287.0" promptText="Año" style="-fx-background-color: transparent; -fx-border-color: #b695c0; -fx-border-width: 0px 0px 2px 0px;" />
+            <TextField fx:id="recorrido" layoutX="226.0" layoutY="338.0" promptText="Recorrido" style="-fx-background-color: transparent; -fx-border-color: #b695c0; -fx-border-width: 0px 0px 2px 0px;" />
+            <TextField fx:id="color" layoutX="226.0" layoutY="386.0" promptText="Color" style="-fx-background-color: transparent; -fx-border-color: #b695c0; -fx-border-width: 0px 0px 2px 0px;" />
+            <TextField fx:id="tipoc" layoutX="226.0" layoutY="436.0" promptText="Tipo de combustible" style="-fx-background-color: transparent; -fx-border-color: #b695c0; -fx-border-width: 0px 0px 2px 0px;" />
             <TextField fx:id="vidrios" layoutX="418.0" layoutY="338.0" promptText="Vidrios" style="-fx-background-color: transparent; -fx-border-color: #b695c0; -fx-border-width: 0px 0px 2px 0px;" />
             <TextField fx:id="transmision" layoutX="418.0" layoutY="386.0" promptText="Transmisión " style="-fx-background-color: transparent; -fx-border-color: #b695c0; -fx-border-width: 0px 0px 2px 0px;" />
             <TextField fx:id="traccion" layoutX="418.0" layoutY="436.0" promptText="Tracción" style="-fx-background-color: transparent; -fx-border-color: #b695c0; -fx-border-width: 0px 0px 2px 0px;" />
