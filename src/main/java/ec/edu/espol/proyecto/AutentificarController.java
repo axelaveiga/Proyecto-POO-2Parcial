@@ -130,6 +130,24 @@ public class AutentificarController implements Initializable {
                 alert.setTitle("Info");
                 alert.setContentText("Autentificación Correcta");
                 alert.showAndWait();
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/ec/edu/espol/proyecto/menu_vehiculo.fxml"));
+            Parent root = loader.load();
+    
+
+            Scene scene = new Scene(root);
+            Stage stage = new Stage();
+
+            stage.setScene(scene);
+            stage.show();
+
+           
+            Stage mystage = (Stage) this.btConfirmarUsuario.getScene().getWindow();
+            mystage.close();
+
+        } catch (IOException ex) {
+            ex.printStackTrace();
+        }                
             }
             else{
                 Alert alert = new Alert(Alert.AlertType.ERROR);

@@ -13,44 +13,46 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.RadioButton;
+import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
-import javafx.stage.Modality;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 /**
  * FXML Controller class
  *
- * @author Axel
+ * @author dayan
  */
-public class ProyectoController implements Initializable {
+public class Menu_vehiculoController implements Initializable {
 
     @FXML
-    private Button btAuntentificar;
+    private Button btbuscar;
     @FXML
-    private ImageView imageview8;
+    private Button btregistrar;
     @FXML
-    private ImageView imageview9;
+    private ImageView imageview10;
     @FXML
-    private ImageView imageview;
-
+    private ImageView imageview11;
+    
+ 
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-     mostrar();
+        mostrarImagen();
+        // TODO
     }
 
     @FXML
-    private void autentificar(ActionEvent event) {
+    private void buscar_vehiculo(ActionEvent event) {
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/ec/edu/espol/proyecto/autentificar.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/ec/edu/espol/proyecto/buscar_vehiculo.fxml"));
             Parent root = loader.load();
-            AutentificarController controlador = loader.getController();
 
             Scene scene = new Scene(root);
             Stage stage = new Stage();
@@ -58,8 +60,7 @@ public class ProyectoController implements Initializable {
             stage.setScene(scene);
             stage.show();
 
-            stage.setOnCloseRequest(e -> controlador.closeWindows());
-            Stage mystage = (Stage) this.btAuntentificar.getScene().getWindow();
+            Stage mystage = (Stage) this.btbuscar.getScene().getWindow();
             mystage.close();
 
         } catch (IOException ex) {
@@ -69,11 +70,11 @@ public class ProyectoController implements Initializable {
     }
 
     @FXML
-    private void registrar(MouseEvent event) {
+    private void registrar_vehiculo(MouseEvent event) {
+        
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/ec/edu/espol/proyecto/registrar.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/ec/edu/espol/proyecto/registrar_vehiculo.fxml"));
             Parent root = loader.load();
-            RegistrarController controlador = loader.getController();
 
             Scene scene = new Scene(root);
             Stage stage = new Stage();
@@ -81,8 +82,7 @@ public class ProyectoController implements Initializable {
             stage.setScene(scene);
             stage.show();
 
-            stage.setOnCloseRequest(e -> controlador.closeWindows());
-            Stage mystage = (Stage) this.btAuntentificar.getScene().getWindow();
+            Stage mystage = (Stage) this.btbuscar.getScene().getWindow();
             mystage.close();
 
         } catch (IOException ex) {
@@ -90,11 +90,14 @@ public class ProyectoController implements Initializable {
         }
 
     }
+
+
     @FXML
-    private void mostrar() {
-        Image image8 = new Image("/imagenes/iniciobla.png");
-        imageview8.setImage(image8);
-        Image image9 = new Image("/imagenes/regisro.png");
-        imageview9.setImage(image9);
-      }
+    private void mostrarImagen() {
+        Image image10 = new Image("/imagenes/BV.png");
+        imageview10.setImage(image10);
+        Image image11 = new Image("/imagenes/Registar vehiculo.png");
+        imageview11.setImage(image11);
+
     }
+}
