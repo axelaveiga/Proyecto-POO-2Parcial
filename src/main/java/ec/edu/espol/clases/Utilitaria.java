@@ -110,4 +110,66 @@ public class Utilitaria {
     }
     
     
+    
+        //Guarda Objeto Vehiculo en archivo Serializable
+    public static void archivoVehiculoSerializable( String nombre , ArrayList<Vehiculo> lista){
+        try {
+            FileOutputStream file = new FileOutputStream(nombre);
+            ObjectOutputStream salida = new ObjectOutputStream(file);
+            salida.writeObject(lista);
+            salida.flush();
+            
+        } catch (FileNotFoundException ex) {
+            ex.printStackTrace();
+        } catch (IOException ex) {
+            ex.printStackTrace();
+        } 
+        
+    }
+    
+    //Retorna Objeto Vehiculo
+    
+    public static ArrayList<Vehiculo> vehiculoSerializable(String nombre){
+        ArrayList<Vehiculo> objeto = new ArrayList<>();
+        try{
+            FileInputStream file = new FileInputStream(nombre);
+            ObjectInputStream entrada = new ObjectInputStream( file);
+            objeto =(ArrayList<Vehiculo>)entrada.readObject();
+            entrada.close();
+            }
+        catch (FileNotFoundException ex) {
+            ex.printStackTrace();
+        } catch (IOException ex) {
+            ex.printStackTrace();
+        } catch (ClassNotFoundException ex) {
+            ex.printStackTrace();
+        }
+        return objeto;
+    }
+    
+    //Guarda Objeto Vehiculo
+    public static void guardarSerializable_Vehiculo(String nombre, Vehiculo objetoAgregar){
+        
+        File archivo = new File(nombre);
+        ArrayList<Vehiculo> lista = new ArrayList<>();
+        //Verifica si existe el archivo
+        if (!archivo.exists()) {
+            lista.add(objetoAgregar);
+            Utilitaria.archivoVehiculoSerializable(nombre, lista);
+        }
+        else{
+        //Guarda el Vehiculo en un ArrayList
+        ArrayList<Vehiculo> objeto = Utilitaria.vehiculoSerializable(nombre);
+        
+        for(int i=0; i < objeto.size(); i++){
+            lista.add(objeto.get(i));
+        }
+        lista.add(objetoAgregar);
+        Utilitaria.archivoVehiculoSerializable(nombre, lista);
+        }
+        
+     
+    }
+    
+    
 }

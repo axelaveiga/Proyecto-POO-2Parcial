@@ -21,7 +21,7 @@ public class Vehiculo {
     private String combustible;
     private double precio;
     private ArrayList<Oferta> ofertas;
-    private Vendedor vendedor;
+    private Persona persona;
 
 
     public Vehiculo(String placa, String marca, String modelo, String tipoMotor, int anio, double recorrido, String color, String combustible, double precio) {
@@ -34,7 +34,7 @@ public class Vehiculo {
         this.color = color;
         this.combustible = combustible;
         this.precio = precio;
-        this.vendedor= null;
+        this.persona= null;
         this.ofertas= new ArrayList<>();
     }
     
@@ -80,8 +80,8 @@ public class Vehiculo {
         return ofertas;
     }
 
-    public Vendedor getVendedor() {
-        return vendedor;
+    public Persona getPersona() {
+        return persona;
     }
 
     public void setPlaca(String placa) {
@@ -124,9 +124,8 @@ public class Vehiculo {
         this.ofertas = ofertas;
     }
 
-    public void setVendedor(Vendedor vendedor) {
-        this.vendedor = vendedor;
+    public void setPersona(Persona persona) {
+        this.persona = persona;
     }
-
     
 }

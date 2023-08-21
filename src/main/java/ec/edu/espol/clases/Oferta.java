@@ -11,18 +11,18 @@ import java.util.ArrayList;
  * @author Axel
  */
 public class Oferta {
-    private Comprador comprador;
+    private Persona persona;
     private Vehiculo vehiculo;
     private double precio;
 
-    public Oferta(Comprador comprador, Vehiculo vehiculo, double precio) {
-        this.comprador = comprador;
+    public Oferta(Persona persona, Vehiculo vehiculo, double precio) {
+        this.persona = persona;
         this.vehiculo = vehiculo;
         this.precio = precio;
     }
 
-    public Comprador getComprador() {
-        return comprador;
+    public Persona getPersona() {
+        return persona;
     }
 
     public Vehiculo getVehiculo() {
@@ -33,8 +33,8 @@ public class Oferta {
         return precio;
     }
 
-    public void setComprador(Comprador comprador) {
-        this.comprador = comprador;
+    public void setPersona(Persona persona) {
+        this.persona = persona;
     }
 
     public void setVehiculo(Vehiculo vehiculo) {

@@ -121,6 +121,7 @@ public class RegistrarController implements Initializable {
         }
         
     }
+    
      @FXML
     private void visualimagen(){
          Image image6 = new Image("/imagenes/flecha.png");

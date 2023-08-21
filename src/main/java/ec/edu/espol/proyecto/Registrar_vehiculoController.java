@@ -176,4 +176,7 @@ public class Registrar_vehiculoController implements Initializable {
         textM.setVisible(false);
 
     }
+    
+    
+    
 }
