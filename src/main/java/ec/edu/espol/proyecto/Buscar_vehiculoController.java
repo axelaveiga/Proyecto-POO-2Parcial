@@ -82,12 +82,20 @@ public class Buscar_vehiculoController implements Initializable {
     
     @FXML
     private TableColumn<Vehiculo, SimpleStringProperty> traccionColumna;
+    @FXML
+    private ObservableList<Vehiculo> vehiculos;
+    @FXML
+    private ObservableList<Vehiculo> filtrovehiculos;
+    
     /**
      * Initializes the controller class.
      * @param url
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+       vehiculos=FXCollections.observableArrayList();
+       filtrovehiculos=FXCollections.observableArrayList();
+       this.tabla.setItems(vehiculos);
        visualimagen();
        placaColumna.setCellValueFactory(new PropertyValueFactory<Vehiculo, SimpleStringProperty>("placa"));
        marcaColumna.setCellValueFactory(new PropertyValueFactory<Vehiculo, SimpleStringProperty>("marca"));
@@ -144,4 +152,5 @@ public class Buscar_vehiculoController implements Initializable {
         return vehiculo;
         
     }
+   
 }
