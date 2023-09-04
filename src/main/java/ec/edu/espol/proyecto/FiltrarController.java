@@ -105,9 +105,13 @@ public class FiltrarController implements Initializable {
             Stage mystage = (Stage) this.btBuscar.getScene().getWindow();
             mystage.close();
             ArrayList<Vehiculo> listaVehiculo = Utilitaria.vehiculoSerializable("placa.ser");
-            ArrayList<Vehiculo> listaVehiculoFiltrada = Utilitaria.filtrarVehiculo("camioneta", Double.parseDouble(recorridoInicio.getText()), Double.parseDouble(recorridoFinal.getText() ), Integer.parseInt(anioInicio.getText()), Integer.parseInt(anioFinal.getText()), Double.parseDouble(precioInicio.getText()), Double.parseDouble(precioFinal.getText()), listaVehiculo);
-            Utilitaria.archivoVehiculoSerializable("listaFiltrada.ser", listaVehiculoFiltrada);
+           // ArrayList<Vehiculo> listaVehiculoFiltrada = Utilitaria.filtrarVehiculo("camioneta", Double.parseDouble(recorridoInicio.getText()), Double.parseDouble(recorridoFinal.getText() ), Integer.parseInt(anioInicio.getText()), Integer.parseInt(anioFinal.getText()), Double.parseDouble(precioInicio.getText()), Double.parseDouble(precioFinal.getText()), listaVehiculo);
+           // Utilitaria.archivoVehiculoSerializable("listaFiltrada.ser", listaVehiculoFiltrada);
+            
+            
+            System.out.println(listaVehiculo.get(0).toString());
 
+            
         } catch (IOException ex) {
             ex.printStackTrace();
         }

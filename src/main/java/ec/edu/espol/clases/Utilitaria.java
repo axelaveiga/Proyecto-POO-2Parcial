@@ -15,7 +15,7 @@ import java.util.ArrayList;
 public class Utilitaria {
 
     // Retorna true si el correo coincide con la contraseña
-    public static boolean validarUsuario(String correo, String contrasena) throws NoSuchAlgorithmException {
+    public static void validarUsuario(String correo, String contrasena) throws NoSuchAlgorithmException, ValidarException {
 
         String contrasenaHash = toHexString(getSHA(contrasena));
         boolean validar = false;
@@ -26,23 +26,31 @@ public class Utilitaria {
             String contrasenaArchivo = Utilitaria.usuarioSerializable("usuario.ser").get(i).getClave();
 
             if (correoArchivo.equals(correo) && contrasenaHash.equals(contrasenaArchivo)) {
+                System.out.println((correoArchivo.equals(correo)));
+                System.out.println(contrasenaHash.equals(contrasenaArchivo));
                 validar = true;
             }
         }
-        return validar;
+       if(!validar){
+           throw new ValidarException("Usuario No Encontrado");
+       }
     }
 
     //Retorna True si el correo  está guardado
-    public static boolean validarCorreo(Persona usuario) {
+    public static void validarCorreo(Persona usuario) throws ValidarException {
         boolean validar = false;
         //Buscando Correo de usuario
         for (int i = 0; i < Utilitaria.usuarioSerializable("usuario.ser").size(); i++) {
             String correoArchivo = Utilitaria.usuarioSerializable("usuario.ser").get(i).getCorreoElectronico();
+            
             if (correoArchivo.equals(usuario.getCorreoElectronico())) {
                 validar = true;
             }
+            
+            }
+        if(!validar){
+                throw new ValidarException("Correo No Encontrado");
         }
-        return validar;
     }
 
     //Guarda Objeto Persona en archivo Serializable
@@ -101,7 +109,7 @@ public class Utilitaria {
 
     }
     //Retorna True si la placa está guardado
-    public static boolean validarPlaca(Vehiculo placa) {
+    public static void validarPlaca(Vehiculo placa) throws ValidarException {
         boolean validar = false;
         //Buscando placa de heviculo
         for (int i = 0; i < Utilitaria.vehiculoSerializable("placa.ser").size(); i++) {
@@ -110,7 +118,9 @@ public class Utilitaria {
                 validar = true;
             }
         }
-        return validar;
+        if(!validar){
+        throw new ValidarException("Placa no Encontrada");
+        }
     }
 
     //Guarda Objeto Vehiculo en archivo Serializable

@@ -7,6 +7,7 @@ package ec.edu.espol.proyecto;
 import ec.edu.espol.clases.Auto;
 import ec.edu.espol.clases.Camioneta;
 import ec.edu.espol.clases.Utilitaria;
+import ec.edu.espol.clases.ValidarException;
 import ec.edu.espol.clases.Vehiculo;
 import java.io.File;
 import java.io.IOException;
@@ -116,6 +117,9 @@ public class Registrar_vehiculoController implements Initializable {
             ex.printStackTrace();
         }
     }
+    
+    
+    
         @FXML
     private void confirmarRegistro_vehiculo(ActionEvent event) {
         ToggleGroup botones = new ToggleGroup();
@@ -123,35 +127,56 @@ public class Registrar_vehiculoController implements Initializable {
         camioneta.setToggleGroup(botones);
         moto.setToggleGroup(botones);
         Vehiculo placa= null;
-        if (botones.getSelectedToggle().equals(moto)){
-            placa = new Vehiculo( placav.getText(), marca.getText(),  modelo.getText(),tipom.getText(), Integer.valueOf(anio.getText()) , Double.valueOf(recorrido.getText()) ,  color.getText(),tipoc.getText(), Double.valueOf(precio.getText()));  
-        } 
-         if (botones.getSelectedToggle().equals(carro)){
-            placa = new Auto( placav.getText(), marca.getText(),  modelo.getText(),tipom.getText(), Integer.valueOf(anio.getText()) , Double.valueOf(recorrido.getText()) ,  color.getText(),tipoc.getText(), vidrios.getText(),transmision.getText(),  Double.valueOf(precio.getText()));  
-        } 
-          if (botones.getSelectedToggle().equals(camioneta)){
-            placa = new Camioneta( placav.getText(), marca.getText(),  modelo.getText(),tipom.getText(), Integer.valueOf(anio.getText()) , Double.valueOf(recorrido.getText()) ,  color.getText(),tipoc.getText(), vidrios.getText(),transmision.getText(), traccion.getText(), Double.valueOf(precio.getText()));  
-          } 
-        boolean validar = Utilitaria.validarPlaca(placa);
-        if( validar == false){
+        try{
+        if ( placav.getText().equals("") || marca.getText().equals("") ||   modelo.getText().equals("") || tipom.getText().equals("") ||  anio.getText().equals("") ||  recorrido.getText().equals("") ||  color.getText().equals("") || tipoc.getText().equals("") ||  precio.getText().equals("") ){
+            if (botones.getSelectedToggle().equals(moto)){
+                placa = new Vehiculo( placav.getText(), marca.getText(),  modelo.getText(), tipom.getText(), Integer.parseInt(anio.getText()) , Double.parseDouble(recorrido.getText()) ,  color.getText(), tipoc.getText(), Double.parseDouble(precio.getText()));  
+            }
+            if (botones.getSelectedToggle().equals(carro)){
+                 placa = new Auto( placav.getText(), marca.getText(),  modelo.getText(),tipom.getText(), Integer.valueOf(anio.getText()) , Double.valueOf(recorrido.getText()) ,  color.getText(),tipoc.getText(), vidrios.getText(),transmision.getText(),  Double.parseDouble(precio.getText()));  
+            }
+            if (botones.getSelectedToggle().equals(camioneta)){
+                placa = new Camioneta( placav.getText(), marca.getText(),  modelo.getText(),tipom.getText(), Integer.valueOf(anio.getText()) , Double.valueOf(recorrido.getText()) ,  color.getText(),tipoc.getText(), vidrios.getText(),transmision.getText(), traccion.getText(), Double.valueOf(precio.getText()));  
+             }
+             try {
+            Utilitaria.validarPlaca(placa);
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setHeaderText(null);
             alert.setTitle("Info");
             alert.setContentText("Vehículo Registrado");
             alert.showAndWait();
             Utilitaria.guardarSerializable_Vehiculo("placa.ser", placa);
-        }
-        else{
+             } catch (ValidarException ex) {
+         
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setHeaderText(null);
             alert.setTitle("Error");
             alert.setContentText("El vehículo no puede ser registrado");
             alert.showAndWait();
             
+            }
         }
-        
-        
+         else{
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setHeaderText(null);
+            alert.setTitle("Error");
+            alert.setContentText("Llenar todos los campos");
+            alert.showAndWait();
+             
+        }
+        }
+        catch(NumberFormatException ex){
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setHeaderText(null);
+            alert.setTitle("Error");
+            alert.setContentText("Ingresar solo números en Año, Recorrido, Precio");
+            alert.showAndWait();
+        }
     }
+    
+        
+        
+    
 
     @FXML
     private void retroceder(ActionEvent event) {

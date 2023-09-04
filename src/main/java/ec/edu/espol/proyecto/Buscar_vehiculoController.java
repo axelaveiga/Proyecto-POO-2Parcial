@@ -97,15 +97,16 @@ public class Buscar_vehiculoController implements Initializable {
        filtrovehiculos=FXCollections.observableArrayList();
        this.tabla.setItems(vehiculos);
        visualimagen();
-       placaColumna.setCellValueFactory(new PropertyValueFactory<Vehiculo, SimpleStringProperty>("placa"));
-       marcaColumna.setCellValueFactory(new PropertyValueFactory<Vehiculo, SimpleStringProperty>("marca"));
-       modeloColumna.setCellValueFactory(new PropertyValueFactory<Vehiculo, SimpleStringProperty>("modelo"));
-       motorColumna.setCellValueFactory(new PropertyValueFactory<Vehiculo, SimpleStringProperty>("tipoMotor"));
-       anioColumna.setCellValueFactory(new PropertyValueFactory<Vehiculo, SimpleStringProperty>("anio"));
-       recorridoColumna.setCellValueFactory(new PropertyValueFactory<Vehiculo, SimpleStringProperty>("recorrido"));
-       colorColumna.setCellValueFactory(new PropertyValueFactory<Vehiculo, SimpleStringProperty>("color"));
-       combustibleColumna.setCellValueFactory(new PropertyValueFactory<Vehiculo, SimpleStringProperty>("combustible"));
-       precioColumna.setCellValueFactory(new PropertyValueFactory<Vehiculo, SimpleStringProperty>("precio"));
+       
+       //placaColumna.setCellValueFactory(new PropertyValueFactory<Vehiculo, SimpleStringProperty>("placa"));
+       //marcaColumna.setCellValueFactory(new PropertyValueFactory<Vehiculo, SimpleStringProperty>("marca"));
+      // modeloColumna.setCellValueFactory(new PropertyValueFactory<Vehiculo, SimpleStringProperty>("modelo"));
+      // motorColumna.setCellValueFactory(new PropertyValueFactory<Vehiculo, SimpleStringProperty>("tipoMotor"));
+      // anioColumna.setCellValueFactory(new PropertyValueFactory<Vehiculo, SimpleStringProperty>("anio"));
+      // recorridoColumna.setCellValueFactory(new PropertyValueFactory<Vehiculo, SimpleStringProperty>("recorrido"));
+       //colorColumna.setCellValueFactory(new PropertyValueFactory<Vehiculo, SimpleStringProperty>("color"));
+      // combustibleColumna.setCellValueFactory(new PropertyValueFactory<Vehiculo, SimpleStringProperty>("combustible"));
+     //  precioColumna.setCellValueFactory(new PropertyValueFactory<Vehiculo, SimpleStringProperty>("precio"));
       // transmisionColumna.setCellValueFactory(new PropertyValueFactory<Vehiculo, SimpleStringProperty>("transmicion"));
       // vidriosColumna.setCellValueFactory(new PropertyValueFactory<Vehiculo, SimpleStringProperty>("vidrios"));
       // traccionColumna.setCellValueFactory(new PropertyValueFactory<Vehiculo, SimpleStringProperty>("traccion"));
