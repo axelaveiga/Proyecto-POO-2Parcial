@@ -119,7 +119,7 @@ public class Utilitaria {
             }
         }
         if(!validar){
-        throw new ValidarException("Placa no Encontrada");
+            throw new ValidarException("Placa no Encontrada");
         }
     }
 

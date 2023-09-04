@@ -18,6 +18,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
@@ -53,20 +54,17 @@ public class FiltrarController implements Initializable {
     private Button btBuscar;
     
     @FXML
-    private ChoiceBox<String> btTipo;
+    private ComboBox<?> btTipo;
     
-    @FXML
     private Label myLabel;
     
-    @FXML
-    private String[] opciones = {"auto", "moto", "camioneta"}; 
+    
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        btTipo.getItems().addAll(opciones);
-       // btTipo.setOnAction(this::buscar);
+        
     }
     
     
@@ -121,8 +119,7 @@ public class FiltrarController implements Initializable {
     
     @FXML
     public void getTipo(ActionEvent event){
-        String myOpcion = btTipo.getValue();
-        myLabel.setText(myOpcion);
+        
     }
     
     
