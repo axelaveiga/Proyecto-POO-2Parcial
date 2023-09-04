@@ -6,6 +6,8 @@ package ec.edu.espol.proyecto;
 
 import ec.edu.espol.clases.Auto;
 import ec.edu.espol.clases.Camioneta;
+import ec.edu.espol.clases.LlenarException;
+import ec.edu.espol.clases.Moto;
 import ec.edu.espol.clases.Utilitaria;
 import ec.edu.espol.clases.ValidarException;
 import ec.edu.espol.clases.Vehiculo;
@@ -121,49 +123,54 @@ public class Registrar_vehiculoController implements Initializable {
     
     
         @FXML
-    private void confirmarRegistro_vehiculo(ActionEvent event) {
+    private void confirmarRegistro_vehiculo(ActionEvent event) throws ValidarException, LlenarException{
         ToggleGroup botones = new ToggleGroup();
         carro.setToggleGroup(botones);
         camioneta.setToggleGroup(botones);
         moto.setToggleGroup(botones);
         Vehiculo placa= null;
         try{
-        if ( placav.getText().equals("") || marca.getText().equals("") ||   modelo.getText().equals("") || tipom.getText().equals("") ||  anio.getText().equals("") ||  recorrido.getText().equals("") ||  color.getText().equals("") || tipoc.getText().equals("") ||  precio.getText().equals("") ){
+            if ( (placav.getText().equals("") || marca.getText().equals("") ||   modelo.getText().equals("") || tipom.getText().equals("") ||  anio.getText().equals("") ||  recorrido.getText().equals("") ||  color.getText().equals("") || tipoc.getText().equals("") ||  precio.getText().equals(""))){
+                throw new LlenarException("Campos Vacios");
+            }
             if (botones.getSelectedToggle().equals(moto)){
-                placa = new Vehiculo( placav.getText(), marca.getText(),  modelo.getText(), tipom.getText(), Integer.parseInt(anio.getText()) , Double.parseDouble(recorrido.getText()) ,  color.getText(), tipoc.getText(), Double.parseDouble(precio.getText()));  
+                Moto placa1= new Moto( placav.getText(), marca.getText(),  modelo.getText(), tipom.getText(), Integer.parseInt(anio.getText()) , Double.parseDouble(recorrido.getText()) ,  color.getText(), tipoc.getText(), Double.parseDouble(precio.getText()));  
+                placa = placa1;
+                
+                Utilitaria.validarPlaca(placa);
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setHeaderText(null);
+                alert.setTitle("Info");
+                alert.setContentText("Vehículo Registrado");
+                alert.showAndWait();
+                Utilitaria.guardarSerializable_Vehiculo("placa.ser", placa1);
             }
             if (botones.getSelectedToggle().equals(carro)){
-                 placa = new Auto( placav.getText(), marca.getText(),  modelo.getText(),tipom.getText(), Integer.valueOf(anio.getText()) , Double.valueOf(recorrido.getText()) ,  color.getText(),tipoc.getText(), vidrios.getText(),transmision.getText(),  Double.parseDouble(precio.getText()));  
+                Auto placa1 = new Auto( placav.getText(), marca.getText(),  modelo.getText(),tipom.getText(), Integer.parseInt(anio.getText()) , Double.parseDouble(recorrido.getText()) ,  color.getText(),tipoc.getText(), vidrios.getText(),transmision.getText(),  Double.parseDouble(precio.getText()));  
+                placa = placa1;
+                
+                Utilitaria.validarPlaca(placa);
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setHeaderText(null);
+                alert.setTitle("Info");
+                alert.setContentText("Vehículo Registrado");
+                alert.showAndWait();
+                Utilitaria.guardarSerializable_Vehiculo("placa.ser", placa1);
             }
             if (botones.getSelectedToggle().equals(camioneta)){
-                placa = new Camioneta( placav.getText(), marca.getText(),  modelo.getText(),tipom.getText(), Integer.valueOf(anio.getText()) , Double.valueOf(recorrido.getText()) ,  color.getText(),tipoc.getText(), vidrios.getText(),transmision.getText(), traccion.getText(), Double.valueOf(precio.getText()));  
-             }
-             try {
-            Utilitaria.validarPlaca(placa);
-            Alert alert = new Alert(Alert.AlertType.INFORMATION);
-            alert.setHeaderText(null);
-            alert.setTitle("Info");
-            alert.setContentText("Vehículo Registrado");
-            alert.showAndWait();
-            Utilitaria.guardarSerializable_Vehiculo("placa.ser", placa);
-             } catch (ValidarException ex) {
-         
-            Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setHeaderText(null);
-            alert.setTitle("Error");
-            alert.setContentText("El vehículo no puede ser registrado");
-            alert.showAndWait();
-            
+                Camioneta placa1 = new Camioneta( placav.getText(), marca.getText(),  modelo.getText(),tipom.getText(), Integer.parseInt(anio.getText()) , Double.parseDouble(recorrido.getText()) ,  color.getText(),tipoc.getText(), vidrios.getText(),transmision.getText(), traccion.getText(), Double.parseDouble(precio.getText()));  
+                placa = placa1;
+                
+                Utilitaria.validarPlaca(placa);
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setHeaderText(null);
+                alert.setTitle("Info");
+                alert.setContentText("Vehículo Registrado");
+                alert.showAndWait();
+                Utilitaria.guardarSerializable_Vehiculo("placa.ser", placa1);
             }
-        }
-         else{
-            Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setHeaderText(null);
-            alert.setTitle("Error");
-            alert.setContentText("Llenar todos los campos");
-            alert.showAndWait();
+              
              
-        }
         }
         catch(NumberFormatException ex){
             Alert alert = new Alert(Alert.AlertType.ERROR);
@@ -172,6 +179,21 @@ public class Registrar_vehiculoController implements Initializable {
             alert.setContentText("Ingresar solo números en Año, Recorrido, Precio");
             alert.showAndWait();
         }
+        catch( LlenarException ex){
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setHeaderText(null);
+            alert.setTitle("Error");
+            alert.setContentText("Llenar todos los campos");
+            alert.showAndWait(); 
+        }
+        catch (ValidarException ex) {
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setHeaderText(null);
+                alert.setTitle("Error");
+                alert.setContentText("Placa ya registrada");
+                alert.showAndWait();
+            
+            }
     }
     
         

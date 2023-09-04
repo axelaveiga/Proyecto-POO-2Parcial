@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="319.0" prefWidth="393.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ec.edu.espol.proyecto.cambio_claveController">
+   <children>
+      <Label layoutX="147.0" layoutY="137.0" text="Cambio clave" textFill="#b695c0">
+         <font>
+            <Font size="18.0" />
+         </font></Label>
+      <Label layoutX="76.0" layoutY="188.0" text="Nueva clave:" textFill="#b695c0" />
+      <Label layoutX="68.0" layoutY="220.0" text="Anterior clave:" textFill="#b695c0" />
+      <Button fx:id="aceptar" layoutX="179.0" layoutY="263.0" mnemonicParsing="false" onAction="#cambioClave" style="-fx-background-color: #b695c0;" text="Aceptar" textFill="WHITE" />
+      <Button fx:id="btRetroceder" layoutY="8.0" mnemonicParsing="false" onAction="#retroceder" style="-fx-background-color: transparent;" textFill="WHITE">
+         <graphic>
+            <ImageView fx:id="imageview31" fitHeight="65.0" fitWidth="76.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../../../../../../../flecha.png" />
+               </image>
+            </ImageView>
+         </graphic></Button>
+      <ImageView fx:id="imageview30" fitHeight="123.0" fitWidth="149.0" layoutX="129.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../../../../../../../../../Downloads/rosalogo.png" />
+         </image>
+      </ImageView>
+      <PasswordField fx:id="nueva" layoutX="151.0" layoutY="179.0" style="-fx-background-color: transparent; -fx-border-color: #b695c0; -fx-border-width: 0px 0px 2px 0px;" />
+      <PasswordField fx:id="anterior" layoutX="151.0" layoutY="211.0" style="-fx-background-color: transparent; -fx-border-color: #b695c0; -fx-border-width: 0px 0px 2px 0px;" />
+   </children>
+</AnchorPane>

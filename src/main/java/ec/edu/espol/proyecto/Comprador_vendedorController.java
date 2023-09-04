@@ -43,8 +43,9 @@ public class Comprador_vendedorController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         mostrarImagen();
         // TODO
-    }   
-        @FXML
+    }
+    
+    @FXML
     private void ir_vendedor(ActionEvent event) {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/ec/edu/espol/proyecto/menu_vehiculo.fxml"));

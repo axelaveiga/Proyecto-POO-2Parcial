@@ -4,18 +4,21 @@
  */
 package ec.edu.espol.proyecto;
 
+import ec.edu.espol.clases.LlenarException;
 import ec.edu.espol.clases.Utilitaria;
 import ec.edu.espol.clases.Vehiculo;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
+import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.ComboBox;
@@ -54,7 +57,7 @@ public class FiltrarController implements Initializable {
     private Button btBuscar;
     
     @FXML
-    private ComboBox<?> btTipo;
+    private ComboBox<String> btTipo;
     
     private Label myLabel;
     
@@ -64,7 +67,7 @@ public class FiltrarController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        
+        btTipo.setItems(FXCollections.observableArrayList("moto", "auto", "camioneta"));
     }
     
     
@@ -89,7 +92,7 @@ public class FiltrarController implements Initializable {
     }
     
     @FXML
-    private void buscar_vehiculo(ActionEvent event) {
+    private void buscar_vehiculo(ActionEvent event) throws LlenarException{
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/ec/edu/espol/proyecto/buscar_vehiculo.fxml"));
             Parent root = loader.load();
@@ -102,14 +105,33 @@ public class FiltrarController implements Initializable {
 
             Stage mystage = (Stage) this.btBuscar.getScene().getWindow();
             mystage.close();
+            
+            
             ArrayList<Vehiculo> listaVehiculo = Utilitaria.vehiculoSerializable("placa.ser");
-           // ArrayList<Vehiculo> listaVehiculoFiltrada = Utilitaria.filtrarVehiculo("camioneta", Double.parseDouble(recorridoInicio.getText()), Double.parseDouble(recorridoFinal.getText() ), Integer.parseInt(anioInicio.getText()), Integer.parseInt(anioFinal.getText()), Double.parseDouble(precioInicio.getText()), Double.parseDouble(precioFinal.getText()), listaVehiculo);
-           // Utilitaria.archivoVehiculoSerializable("listaFiltrada.ser", listaVehiculoFiltrada);
             
+            try{
+                if(  btTipo.getValue().equals("")|| recorridoInicio.getText().equals("") ||recorridoFinal.getText().equals("") || anioInicio.getText().equals("") || anioFinal.getText().equals("") || precioInicio.getText().equals("") || precioFinal.getText().equals("") ){
+                    throw new LlenarException("Llenar campos");
+                }
             
-            System.out.println(listaVehiculo.get(0).toString());
-
-            
+                ArrayList<Vehiculo> listaVehiculoFiltrada = Utilitaria.filtrarVehiculo(btTipo.getValue(), Double.parseDouble(recorridoInicio.getText()), Double.parseDouble(recorridoFinal.getText() ), Integer.parseInt(anioInicio.getText()), Integer.parseInt(anioFinal.getText()), Double.parseDouble(precioInicio.getText()), Double.parseDouble(precioFinal.getText()), listaVehiculo);
+                Utilitaria.archivoListaSerializable("listaFiltrada.ser", listaVehiculoFiltrada);
+          
+            }
+            catch(NumberFormatException ex){
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setHeaderText(null);
+            alert.setTitle("Error");
+            alert.setContentText("Ingresar solo números en Año, Recorrido, Precio");
+            alert.showAndWait();
+            }
+            catch( LlenarException ex){
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setHeaderText(null);
+            alert.setTitle("Error");
+            alert.setContentText("Llenar todos los campos");
+            alert.showAndWait(); 
+        }
         } catch (IOException ex) {
             ex.printStackTrace();
         }

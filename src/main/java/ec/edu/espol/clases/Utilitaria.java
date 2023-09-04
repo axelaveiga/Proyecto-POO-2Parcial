@@ -118,7 +118,7 @@ public class Utilitaria {
                 validar = true;
             }
         }
-        if(!validar){
+        if(validar){
             throw new ValidarException("Placa no Encontrada");
         }
     }
@@ -127,6 +127,21 @@ public class Utilitaria {
     public static void archivoVehiculoSerializable(String nombre, ArrayList<Vehiculo> lista) {
         try {
             FileOutputStream file = new FileOutputStream(nombre);
+            ObjectOutputStream salida = new ObjectOutputStream(file);
+            salida.writeObject(lista);
+            salida.flush();
+
+        } catch (FileNotFoundException ex) {
+            ex.printStackTrace();
+        } catch (IOException ex) {
+            ex.printStackTrace();
+        }
+
+    }
+    
+    public static void archivoListaSerializable(String nombre, ArrayList<Vehiculo> lista) {
+        try {
+            FileOutputStream file = new FileOutputStream(nombre, true);
             ObjectOutputStream salida = new ObjectOutputStream(file);
             salida.writeObject(lista);
             salida.flush();
@@ -183,266 +198,25 @@ public class Utilitaria {
     public static ArrayList<Vehiculo> filtrarVehiculo(String tipo, double recorridoInicial, double recorridoFinal, int anioInicial, int  anioFinal, double precioInicial, double precioFinal, ArrayList<Vehiculo> lista){
         ArrayList<Vehiculo> listaFinal = new ArrayList<>();
         
-        ArrayList<Vehiculo> listaTipo = new ArrayList<>();
-        ArrayList<Vehiculo> listaRecorrido = new ArrayList<>();
-        ArrayList<Vehiculo> listaAnio = new ArrayList<>();
+    
         
-        for( int i=0; i< lista.size(); i++){
-            if( tipo.equals("camioneta")){
-                if( lista.get(i) instanceof Camioneta){
-                    listaTipo.add(lista.get(i));
-                    
-                    for( int j=0; j< listaTipo.size(); j++){
-                        if( recorridoInicial <= listaTipo.get(j).getRecorrido()  &&  listaTipo.get(j).getRecorrido()<= recorridoFinal){
-                            listaRecorrido.add(listaTipo.get(j));
-                            
-                            for( int k=0; k< listaRecorrido.size(); k++){
-                                if( anioInicial <= listaRecorrido.get(k).getAnio() && listaRecorrido.get(k).getAnio() <= anioFinal ){
-                                    listaAnio.add(listaRecorrido.get(k));
-                                    
-                                    for(int m=0 ; m < listaAnio.size() ; m++){
-                                        if( precioInicial <= listaAnio.get(m).getAnio() && listaAnio.get(m).getPrecio() <=  precioFinal){
-                                            listaFinal.add(listaAnio.get(m));
-                                        }
-                                        else{
-                                            listaFinal.add(listaAnio.get(m));
-                                        }
-                                    }
-                                }
-                                else{
-                                    listaAnio.add(listaRecorrido.get(k));
-                                    for(int m=0 ; m < listaAnio.size() ; m++){
-                                        if( precioInicial <= listaAnio.get(m).getAnio() && listaAnio.get(m).getPrecio() <=  precioFinal){
-                                            listaFinal.add(listaAnio.get(m));
-                                        }
-                                        else{
-                                            listaFinal.add(listaAnio.get(m));
-                                        }
-                                    } 
-                                }
-                            }
-                        }
-                        else{
-                            listaRecorrido.add(listaTipo.get(j));
-                            for( int k=0; k< listaRecorrido.size(); k++){
-                                if( anioInicial <= listaRecorrido.get(k).getAnio() && listaRecorrido.get(k).getAnio() <= anioFinal ){
-                                    listaAnio.add(listaRecorrido.get(k));
-                                    
-                                    for(int m=0 ; m < listaAnio.size() ; m++){
-                                        if( precioInicial <= listaAnio.get(m).getAnio() && listaAnio.get(m).getPrecio() <=  precioFinal){
-                                            listaFinal.add(listaAnio.get(m));
-                                        }
-                                        else{
-                                            listaFinal.add(listaAnio.get(m));
-                                        }
-                                    }
-                                }
-                                else{
-                                    listaAnio.add(listaRecorrido.get(k));
-                                    for(int m=0 ; m < listaAnio.size() ; m++){
-                                        if( precioInicial <= listaAnio.get(m).getAnio() && listaAnio.get(m).getPrecio() <=  precioFinal){
-                                            listaFinal.add(listaAnio.get(m));
-                                        }
-                                        else{
-                                            listaFinal.add(listaAnio.get(m));
-                                        }
-                                    } 
-                                }
-                            }   
-                        }
-                    }
-                }
-            }
-            if( tipo.equals("auto")){
-                if( lista.get(i) instanceof Auto){
-                    listaTipo.add(lista.get(i));
-                    for( int j=0; j< listaTipo.size(); j++){
-                        if( recorridoInicial <= listaTipo.get(j).getRecorrido()  &&  listaTipo.get(j).getRecorrido()<= recorridoFinal){
-                            listaRecorrido.add(listaTipo.get(j));
-                            
-                            for( int k=0; k< listaRecorrido.size(); k++){
-                                if( anioInicial <= listaRecorrido.get(k).getAnio() && listaRecorrido.get(k).getAnio() <= anioFinal ){
-                                    listaAnio.add(listaRecorrido.get(k));
-                                    
-                                    for(int m=0 ; m < listaAnio.size() ; m++){
-                                        if( precioInicial <= listaAnio.get(m).getAnio() && listaAnio.get(m).getPrecio() <=  precioFinal){
-                                            listaFinal.add(listaAnio.get(m));
-                                        }
-                                        else{
-                                            listaFinal.add(listaAnio.get(m));
-                                        }
-                                    }
-                                }
-                                else{
-                                    listaAnio.add(listaRecorrido.get(k));
-                                    for(int m=0 ; m < listaAnio.size() ; m++){
-                                        if( precioInicial <= listaAnio.get(m).getAnio() && listaAnio.get(m).getPrecio() <=  precioFinal){
-                                            listaFinal.add(listaAnio.get(m));
-                                        }
-                                        else{
-                                            listaFinal.add(listaAnio.get(m));
-                                        }
-                                    } 
-                                }
-                            }
-                        }
-                        else{
-                            listaRecorrido.add(listaTipo.get(j));
-                            for( int k=0; k< listaRecorrido.size(); k++){
-                                if( anioInicial <= listaRecorrido.get(k).getAnio() && listaRecorrido.get(k).getAnio() <= anioFinal ){
-                                    listaAnio.add(listaRecorrido.get(k));
-                                    
-                                    for(int m=0 ; m < listaAnio.size() ; m++){
-                                        if( precioInicial <= listaAnio.get(m).getAnio() && listaAnio.get(m).getPrecio() <=  precioFinal){
-                                            listaFinal.add(listaAnio.get(m));
-                                        }
-                                        else{
-                                            listaFinal.add(listaAnio.get(m));
-                                        }
-                                    }
-                                }
-                                else{
-                                    listaAnio.add(listaRecorrido.get(k));
-                                    for(int m=0 ; m < listaAnio.size() ; m++){
-                                        if( precioInicial <= listaAnio.get(m).getAnio() && listaAnio.get(m).getPrecio() <=  precioFinal){
-                                            listaFinal.add(listaAnio.get(m));
-                                        }
-                                        else{
-                                            listaFinal.add(listaAnio.get(m));
-                                        }
-                                    } 
-                                }
-                            }   
-                        }
-                    }
-                }
-            }
-            if( tipo.equals("moto")){
-                if( lista.get(i) instanceof Vehiculo){
-                    listaTipo.add(lista.get(i));
-                    for( int j=0; j< listaTipo.size(); j++){
-                        if( recorridoInicial <= listaTipo.get(j).getRecorrido()  &&  listaTipo.get(j).getRecorrido()<= recorridoFinal){
-                            listaRecorrido.add(listaTipo.get(j));
-                            
-                            for( int k=0; k< listaRecorrido.size(); k++){
-                                if( anioInicial <= listaRecorrido.get(k).getAnio() && listaRecorrido.get(k).getAnio() <= anioFinal ){
-                                    listaAnio.add(listaRecorrido.get(k));
-                                    
-                                    for(int m=0 ; m < listaAnio.size() ; m++){
-                                        if( precioInicial <= listaAnio.get(m).getAnio() && listaAnio.get(m).getPrecio() <=  precioFinal){
-                                            listaFinal.add(listaAnio.get(m));
-                                        }
-                                        else{
-                                            listaFinal.add(listaAnio.get(m));
-                                        }
-                                    }
-                                }
-                                else{
-                                    listaAnio.add(listaRecorrido.get(k));
-                                    for(int m=0 ; m < listaAnio.size() ; m++){
-                                        if( precioInicial <= listaAnio.get(m).getAnio() && listaAnio.get(m).getPrecio() <=  precioFinal){
-                                            listaFinal.add(listaAnio.get(m));
-                                        }
-                                        else{
-                                            listaFinal.add(listaAnio.get(m));
-                                        }
-                                    } 
-                                }
-                            }
-                        }
-                        else{
-                            listaRecorrido.add(listaTipo.get(j));
-                            for( int k=0; k< listaRecorrido.size(); k++){
-                                if( anioInicial <= listaRecorrido.get(k).getAnio() && listaRecorrido.get(k).getAnio() <= anioFinal ){
-                                    listaAnio.add(listaRecorrido.get(k));
-                                    
-                                    for(int m=0 ; m < listaAnio.size() ; m++){
-                                        if( precioInicial <= listaAnio.get(m).getAnio() && listaAnio.get(m).getPrecio() <=  precioFinal){
-                                            listaFinal.add(listaAnio.get(m));
-                                        }
-                                        else{
-                                            listaFinal.add(listaAnio.get(m));
-                                        }
-                                    }
-                                }
-                                else{
-                                    listaAnio.add(listaRecorrido.get(k));
-                                    for(int m=0 ; m < listaAnio.size() ; m++){
-                                        if( precioInicial <= listaAnio.get(m).getAnio() && listaAnio.get(m).getPrecio() <=  precioFinal){
-                                            listaFinal.add(listaAnio.get(m));
-                                        }
-                                        else{
-                                            listaFinal.add(listaAnio.get(m));
-                                        }
-                                    } 
-                                }
-                            }   
-                        }
-                    }
-                }
-            }
-            else{
-                listaTipo.add(lista.get(i));
-                for( int j=0; j< listaTipo.size(); j++){
-                        if( recorridoInicial <= listaTipo.get(j).getRecorrido()  &&  listaTipo.get(j).getRecorrido()<= recorridoFinal){
-                            listaRecorrido.add(listaTipo.get(j));
-                            
-                            for( int k=0; k< listaRecorrido.size(); k++){
-                                if( anioInicial <= listaRecorrido.get(k).getAnio() && listaRecorrido.get(k).getAnio() <= anioFinal ){
-                                    listaAnio.add(listaRecorrido.get(k));
-                                    
-                                    for(int m=0 ; m < listaAnio.size() ; m++){
-                                        if( precioInicial <= listaAnio.get(m).getAnio() && listaAnio.get(m).getPrecio() <=  precioFinal){
-                                            listaFinal.add(listaAnio.get(m));
-                                        }
-                                        else{
-                                            listaFinal.add(listaAnio.get(m));
-                                        }
-                                    }
-                                }
-                                else{
-                                    listaAnio.add(listaRecorrido.get(k));
-                                    for(int m=0 ; m < listaAnio.size() ; m++){
-                                        if( precioInicial <= listaAnio.get(m).getAnio() && listaAnio.get(m).getPrecio() <=  precioFinal){
-                                            listaFinal.add(listaAnio.get(m));
-                                        }
-                                        else{
-                                            listaFinal.add(listaAnio.get(m));
-                                        }
-                                    } 
-                                }
-                            }
-                        }
-                        else{
-                            listaRecorrido.add(listaTipo.get(j));
-                            for( int k=0; k< listaRecorrido.size(); k++){
-                                if( anioInicial <= listaRecorrido.get(k).getAnio() && listaRecorrido.get(k).getAnio() <= anioFinal ){
-                                    listaAnio.add(listaRecorrido.get(k));
-                                    
-                                    for(int m=0 ; m < listaAnio.size() ; m++){
-                                        if( precioInicial <= listaAnio.get(m).getAnio() && listaAnio.get(m).getPrecio() <=  precioFinal){
-                                            listaFinal.add(listaAnio.get(m));
-                                        }
-                                        else{
-                                            listaFinal.add(listaAnio.get(m));
-                                        }
-                                    }
-                                }
-                                else{
-                                    listaAnio.add(listaRecorrido.get(k));
-                                    for(int m=0 ; m < listaAnio.size() ; m++){
-                                        if( precioInicial <= listaAnio.get(m).getAnio() && listaAnio.get(m).getPrecio() <=  precioFinal){
-                                            listaFinal.add(listaAnio.get(m));
-                                        }
-                                        else{
-                                            listaFinal.add(listaAnio.get(m));
-                                        }
-                                    } 
-                                }
-                            }   
-                        }
-                    }
-            }
+        if( tipo.equals("camioneta")){
+                for( int i=0; i< lista.size(); i++){
+                    if( lista.get(i) instanceof Camioneta &&  recorridoInicial <= lista.get(i).getRecorrido()  &&  lista.get(i).getRecorrido()<= recorridoFinal && anioInicial <= lista.get(i).getAnio() && lista.get(i).getAnio() <= anioFinal && precioInicial <= lista.get(i).getAnio() && lista.get(i).getPrecio() <=  precioFinal) {
+                        listaFinal.add(lista.get(i));}}
+        }
+                                        
+        if( tipo.equals("auto")){
+                for( int i=0; i< lista.size(); i++){
+                    if( lista.get(i) instanceof Auto &&  recorridoInicial <= lista.get(i).getRecorrido()  &&  lista.get(i).getRecorrido()<= recorridoFinal && anioInicial <= lista.get(i).getAnio() && lista.get(i).getAnio() <= anioFinal && precioInicial <= lista.get(i).getAnio() && lista.get(i).getPrecio() <=  precioFinal) {
+                        listaFinal.add(lista.get(i));}}
+        }
+            
+            
+        if( tipo.equals("moto")){
+                for( int i=0; i< lista.size(); i++){
+                    if( lista.get(i) instanceof Moto &&  recorridoInicial <= lista.get(i).getRecorrido()  &&  lista.get(i).getRecorrido()<= recorridoFinal && anioInicial <= lista.get(i).getAnio() && lista.get(i).getAnio() <= anioFinal && precioInicial <= lista.get(i).getAnio() && lista.get(i).getPrecio() <=  precioFinal) {
+                        listaFinal.add(lista.get(i));}}
         }
         
         return listaFinal;
