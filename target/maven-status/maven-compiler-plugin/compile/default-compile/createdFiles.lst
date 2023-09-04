@@ -1,11 +1,15 @@
+ec\edu\espol\clases\Oferta.class
+ec\edu\espol\proyecto\ProyectoController.class
+ec\edu\espol\clases\Auto.class
+ec\edu\espol\proyecto\RegistrarController.class
 ec\edu\espol\clases\Camioneta.class
 ec\edu\espol\clases\Hash.class
 ec\edu\espol\proyecto\SecondaryController.class
 ec\edu\espol\clases\ValidarException.class
 ec\edu\espol\proyecto\AutentificarController.class
 ec\edu\espol\proyecto\PrimaryController.class
-ec\edu\espol\clases\Oferta.class
 module-info.class
+<<<<<<< HEAD
 ec\edu\espol\proyecto\ProyectoController.class
 ec\edu\espol\proyecto\FiltrarController.class
 ec\edu\espol\proyecto\PerfilController.class
@@ -16,5 +20,9 @@ ec\edu\espol\proyecto\App.class
 ec\edu\espol\proyecto\Buscar_vehiculoController.class
 ec\edu\espol\proyecto\RegistrarController.class
 ec\edu\espol\proyecto\Menu_vehiculoController.class
+=======
+ec\edu\espol\clases\Utilitaria.class
+ec\edu\espol\proyecto\App.class
+>>>>>>> a6eee564e4afac3edb47570abf7e918e8b8861ef
 ec\edu\espol\clases\Vehiculo.class
 ec\edu\espol\clases\Persona.class

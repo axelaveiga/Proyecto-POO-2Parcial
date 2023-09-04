@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="450.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ec.edu.espol.proyecto.Comprador_vendedorController">
+   <children>
+      <AnchorPane prefHeight="300.0" prefWidth="450.0" style="-fx-background-color: #b695c0;">
+         <children>
+            <Button fx:id="bperfil" layoutX="361.0" layoutY="14.0" mnemonicParsing="false" onAction="#ir_perfil" style="-fx-background-color: transpaent;">
+               <graphic>
+                  <ImageView fx:id="imageview23" fitHeight="59.0" fitWidth="64.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../../../../../../../../../Downloads/perfil.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button layoutX="131.0" layoutY="36.0" mnemonicParsing="false" style="-fx-background-color: transparent;">
+               <graphic>
+                  <ImageView fx:id="imageview22" fitHeight="220.0" fitWidth="182.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../../../../../../../Compra.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+         </children>
+      </AnchorPane>
+      <Button fx:id="bvender" layoutX="86.0" layoutY="308.0" mnemonicParsing="false" onAction="#ir_vendedor" prefHeight="256.0" prefWidth="281.0" style="-fx-background-color: transparent;">
+         <graphic>
+            <ImageView fx:id="imageview24" fitHeight="238.0" fitWidth="266.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../../../../../../../vender.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+   </children>
+</AnchorPane>
