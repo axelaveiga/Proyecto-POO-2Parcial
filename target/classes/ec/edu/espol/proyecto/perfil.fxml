@@ -1,20 +1,90 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ec.edu.espol.proyecto.PerfilController">
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #b695c0;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ec.edu.espol.proyecto.PerfilController">
    <children>
-      <Label layoutX="235.0" layoutY="35.0" text="Perfil de Usuario" />
-      <Label layoutX="78.0" layoutY="101.0" text="Nombre:" />
-      <Label layoutX="82.0" layoutY="169.0" text="Correo:" />
-      <Label layoutX="73.0" layoutY="200.0" text="Organización:" />
-      <Label layoutX="78.0" layoutY="137.0" text="Apellido:" />
-      <Label layoutX="78.0" layoutY="227.0" text="Contraseña:" />
-      <Label fx:id="nombreR" layoutX="146.0" layoutY="101.0" />
-      <Label fx:id="apellidoR" layoutX="146.0" layoutY="137.0" />
-      <Label fx:id="correoR" layoutX="146.0" layoutY="169.0" />
-      <Label fx:id="organizacionR" layoutX="160.0" layoutY="200.0" />
-      <Label fx:id="claveR" layoutX="160.0" layoutY="227.0" />
+      <AnchorPane layoutX="-6.0" layoutY="172.0" prefHeight="228.0" prefWidth="608.0" style="-fx-background-color: white;">
+         <children>
+            <AnchorPane layoutX="6.0" prefHeight="31.0" prefWidth="603.0" style="-fx-background-color: #503459;">
+               <children>
+                  <Label layoutX="223.0" layoutY="3.0" prefHeight="25.0" prefWidth="276.0" text="Información personal " textFill="WHITE">
+                     <font>
+                        <Font name="Yu Gothic Light" size="18.0" />
+                     </font>
+                  </Label>
+               </children>
+            </AnchorPane>
+            <Label layoutX="67.0" layoutY="50.0" text="Nombre:" textFill="#b695c0">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </Label>
+            <Label fx:id="nombreR" layoutX="152.0" layoutY="51.0">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <Label layoutX="68.0" layoutY="83.0" text="Apellido:" textFill="#b695c0">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </Label>
+            <Label fx:id="apellidoR" layoutX="155.0" layoutY="84.0">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <Label layoutX="83.0" layoutY="114.0" text="Correo:" textFill="#b695c0">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </Label>
+            <Label fx:id="correoR" layoutX="156.0" layoutY="115.0">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <Label layoutX="32.0" layoutY="143.0" text="Organización:" textFill="#b695c0">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </Label>
+            <Label fx:id="organizacionR" layoutX="158.0" layoutY="144.0">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <Button fx:id="cla" layoutX="408.0" layoutY="158.0" mnemonicParsing="false" onAction="#clave" prefHeight="47.0" prefWidth="149.0" style="-fx-background-color: transparent;" text="Cambiar clave" textFill="#b695c0">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Button>
+         </children>
+      </AnchorPane>
+      <ImageView fx:id="imageview28" fitHeight="128.0" fitWidth="122.0" layoutX="238.0" layoutY="30.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../../../../../../../../../Downloads/perfil.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="imageview29" fitHeight="104.0" fitWidth="103.0" layoutX="497.0" layoutY="1.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../../../../../../../../../Downloads/logoblanco.png" />
+         </image>
+      </ImageView>
+      <Button fx:id="btRetroceder" layoutX="-6.0" layoutY="10.0" mnemonicParsing="false" onAction="#retroceder" style="-fx-background-color: transparent;">
+         <graphic>
+            <ImageView fx:id="imageview27" fitHeight="66.0" fitWidth="82.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../../../../../../../../../Downloads/flechab.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
    </children>
 </AnchorPane>

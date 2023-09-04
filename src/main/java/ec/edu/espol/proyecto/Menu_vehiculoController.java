@@ -74,7 +74,7 @@ public class Menu_vehiculoController implements Initializable {
     }
 
     @FXML
-    private void registrar_vehiculo(MouseEvent event) {
+    private void registrar_vehiculo() {
         
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/ec/edu/espol/proyecto/registrar_vehiculo.fxml"));
@@ -94,7 +94,7 @@ public class Menu_vehiculoController implements Initializable {
         }
 
     }
-            @FXML
+    @FXML
     private void retroceder(ActionEvent event) {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/ec/edu/espol/proyecto/comprador_vendedor.fxml"));
@@ -122,7 +122,7 @@ public class Menu_vehiculoController implements Initializable {
         imageview10.setImage(image10);
         Image image11 = new Image("/imagenes/Registar vehiculo.png");
         imageview11.setImage(image11);
-        Image image26 = new Image("/imagenes/flecha.png");
+        Image image26 = new Image("/imagenes/flechab.png");
         imageview26.setImage(image26);
 
     }
