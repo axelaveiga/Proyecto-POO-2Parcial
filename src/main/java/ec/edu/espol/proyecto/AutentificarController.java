@@ -5,6 +5,7 @@
 package ec.edu.espol.proyecto;
 
 import ec.edu.espol.clases.Utilitaria;
+import ec.edu.espol.clases.ValidarException;
 import java.io.IOException;
 import java.net.URL;
 import java.security.NoSuchAlgorithmException;
@@ -123,33 +124,32 @@ public class AutentificarController implements Initializable {
     @FXML
     private void confirmarUsuario(ActionEvent event) {
         try {
-            boolean validar =Utilitaria.validarUsuario(correo.getText(), contrasena.getText());
-            if( validar == true){
+            
+            
+            try{
+                Utilitaria.validarUsuario(correo.getText(), contrasena.getText());
                 Alert alert = new Alert(Alert.AlertType.INFORMATION);
                 alert.setHeaderText(null);
                 alert.setTitle("Info");
                 alert.setContentText("Autentificación Correcta");
                 alert.showAndWait();
-        try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/ec/edu/espol/proyecto/menu_vehiculo.fxml"));
-            Parent root = loader.load();
+                try {
+                    FXMLLoader loader = new FXMLLoader(getClass().getResource("/ec/edu/espol/proyecto/menu_vehiculo.fxml"));
+                    Parent root = loader.load();
     
+                    Scene scene = new Scene(root);
+                    Stage stage = new Stage();
 
-            Scene scene = new Scene(root);
-            Stage stage = new Stage();
-
-            stage.setScene(scene);
-            stage.show();
-
+                    stage.setScene(scene);
+                    stage.show();
            
-            Stage mystage = (Stage) this.btConfirmarUsuario.getScene().getWindow();
-            mystage.close();
-
-        } catch (IOException ex) {
-            ex.printStackTrace();
-        }                
+                    Stage mystage = (Stage) this.btConfirmarUsuario.getScene().getWindow();
+                    mystage.close();
+                } catch (IOException ex) {
+                    ex.printStackTrace();
+                }                
             }
-            else{
+            catch( ValidarException ex){
                 Alert alert = new Alert(Alert.AlertType.ERROR);
                 alert.setHeaderText(null);
                 alert.setTitle("Error");

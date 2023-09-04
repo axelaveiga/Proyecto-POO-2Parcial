@@ -6,6 +6,7 @@ package ec.edu.espol.proyecto;
 
 import ec.edu.espol.clases.Persona;
 import ec.edu.espol.clases.Utilitaria;
+import ec.edu.espol.clases.ValidarException;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -101,23 +102,39 @@ public class RegistrarController implements Initializable {
 
     @FXML
     private void confirmarRegistro(ActionEvent event) {
+        
+        
         Persona usuario = new Persona( nombre.getText(), apellido.getText(),  organizacion.getText(),correo.getText(), clave.getText());
-        boolean validar = Utilitaria.validarCorreo(usuario);
-        if( validar == false){
+        
+        if( nombre.getText().equals("") || apellido.getText().equals("") ||  organizacion.getText().equals("") ||correo.getText().equals("") ||clave.getText().equals("")){
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setHeaderText(null);
+            alert.setTitle("Info");
+            alert.setContentText("Llenar Todos los campos");
+            alert.showAndWait();
+        }
+        
+        else{
+        try {
+            Utilitaria.validarCorreo(usuario);
+            
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setHeaderText(null);
             alert.setTitle("Info");
             alert.setContentText("Usuario Registrado");
             alert.showAndWait();
+            
             Utilitaria.guardarSerializable("usuario.ser", usuario);
-        }
-        else{
+            
+            
+        } catch (ValidarException ex) {
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setHeaderText(null);
             alert.setTitle("Error");
             alert.setContentText("Usuario No Disponible");
             alert.showAndWait();
             
+        }
         }
         
     }
