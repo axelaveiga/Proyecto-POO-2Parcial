@@ -34,9 +34,13 @@ public class Menu_vehiculoController implements Initializable {
     @FXML
     private Button btregistrar;
     @FXML
+    private Button btRetroceder;
+    @FXML
     private ImageView imageview10;
     @FXML
     private ImageView imageview11;
+    @FXML
+    private ImageView imageview26;
     
  
     /**
@@ -90,6 +94,26 @@ public class Menu_vehiculoController implements Initializable {
         }
 
     }
+            @FXML
+    private void retroceder(ActionEvent event) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/ec/edu/espol/proyecto/comprador_vendedor.fxml"));
+            Parent root = loader.load();
+
+            Scene scene = new Scene(root);
+            Stage stage = new Stage();
+
+            stage.setScene(scene);
+            stage.show();
+
+            Stage mystage = (Stage) this.btRetroceder.getScene().getWindow();
+            mystage.close();
+
+        } catch (IOException ex) {
+            ex.printStackTrace();
+        }
+    }
+
 
 
     @FXML
@@ -98,6 +122,8 @@ public class Menu_vehiculoController implements Initializable {
         imageview10.setImage(image10);
         Image image11 = new Image("/imagenes/Registar vehiculo.png");
         imageview11.setImage(image11);
+        Image image26 = new Image("/imagenes/flecha.png");
+        imageview26.setImage(image26);
 
     }
     

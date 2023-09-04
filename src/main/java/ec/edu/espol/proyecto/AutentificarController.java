@@ -42,7 +42,6 @@ public class AutentificarController implements Initializable {
     private ImageView imageview4;
     @FXML
     private ImageView imageview5;
-    
     @FXML
     private PasswordField contrasena;
     @FXML
@@ -51,6 +50,7 @@ public class AutentificarController implements Initializable {
     private Button btRetroceder;
     @FXML
     private Button btConfirmarUsuario;
+    public static String vCorreo;
     
     
 
@@ -130,8 +130,9 @@ public class AutentificarController implements Initializable {
                 alert.setTitle("Info");
                 alert.setContentText("Autentificación Correcta");
                 alert.showAndWait();
+                vCorreo=correo.getText();
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/ec/edu/espol/proyecto/menu_vehiculo.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/ec/edu/espol/proyecto/comprador_vendedor.fxml"));
             Parent root = loader.load();
     
 

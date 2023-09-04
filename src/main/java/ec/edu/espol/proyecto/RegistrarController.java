@@ -120,6 +120,7 @@ public class RegistrarController implements Initializable {
             
         }
         
+        
     }
     
      @FXML
@@ -130,4 +131,6 @@ public class RegistrarController implements Initializable {
          imageview7.setImage(image7);
 
     }
+
+  
 }
