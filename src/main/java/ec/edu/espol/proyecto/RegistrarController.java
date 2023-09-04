@@ -100,7 +100,6 @@ public class RegistrarController implements Initializable {
             ex.printStackTrace();
         } 
     }
-
     @FXML
     private void confirmarRegistro(ActionEvent event) {
         
@@ -116,29 +115,24 @@ public class RegistrarController implements Initializable {
         }
         
         else{
-        try {
-            Utilitaria.validarCorreo(usuario);
-            
+        boolean validar = Utilitaria.validarCorreo(usuario);
+        if( validar == false){
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setHeaderText(null);
             alert.setTitle("Info");
             alert.setContentText("Usuario Registrado");
             alert.showAndWait();
-            
             Utilitaria.guardarSerializable("usuario.ser", usuario);
-            
-            
-        } catch (ValidarException ex) {
+        }
+        else{
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setHeaderText(null);
             alert.setTitle("Error");
             alert.setContentText("Usuario No Disponible");
             alert.showAndWait();
-            
+
         }
         }
-        
-        
     }
     
      @FXML

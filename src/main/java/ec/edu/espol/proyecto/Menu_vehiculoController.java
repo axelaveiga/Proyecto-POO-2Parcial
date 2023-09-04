@@ -55,7 +55,7 @@ public class Menu_vehiculoController implements Initializable {
     @FXML
     private void buscar_vehiculo(ActionEvent event) {
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/ec/edu/espol/proyecto/filtrar.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/ec/edu/espol/proyecto/buscar_vehiculo.fxml"));
             Parent root = loader.load();
 
             Scene scene = new Scene(root);

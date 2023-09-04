@@ -36,21 +36,17 @@ public class Utilitaria {
        }
     }
 
-    //Retorna True si el correo  está guardado
-    public static void validarCorreo(Persona usuario) throws ValidarException {
+//Retorna True si el correo  está guardado
+    public static boolean validarCorreo(Persona usuario) {
         boolean validar = false;
         //Buscando Correo de usuario
         for (int i = 0; i < Utilitaria.usuarioSerializable("usuario.ser").size(); i++) {
             String correoArchivo = Utilitaria.usuarioSerializable("usuario.ser").get(i).getCorreoElectronico();
-            
             if (correoArchivo.equals(usuario.getCorreoElectronico())) {
                 validar = true;
             }
-            
-            }
-        if(!validar){
-                throw new ValidarException("Correo No Encontrado");
         }
+        return validar;
     }
 
     //Guarda Objeto Persona en archivo Serializable
@@ -202,20 +198,20 @@ public class Utilitaria {
         
         if( tipo.equals("camioneta")){
                 for( int i=0; i< lista.size(); i++){
-                    if( lista.get(i) instanceof Camioneta &&  recorridoInicial <= lista.get(i).getRecorrido()  &&  lista.get(i).getRecorrido()<= recorridoFinal && anioInicial <= lista.get(i).getAnio() && lista.get(i).getAnio() <= anioFinal && precioInicial <= lista.get(i).getAnio() && lista.get(i).getPrecio() <=  precioFinal) {
+                    if( lista.get(i) instanceof Camioneta &&  recorridoInicial <= lista.get(i).getRecorrido()  &&  lista.get(i).getRecorrido()<= recorridoFinal && anioInicial <= lista.get(i).getAnio() && lista.get(i).getAnio() <= anioFinal && precioInicial <= lista.get(i).getPrecio() && lista.get(i).getPrecio() <=  precioFinal) {
                         listaFinal.add(lista.get(i));}}
         }
                                         
         if( tipo.equals("auto")){
                 for( int i=0; i< lista.size(); i++){
-                    if( lista.get(i) instanceof Auto &&  recorridoInicial <= lista.get(i).getRecorrido()  &&  lista.get(i).getRecorrido()<= recorridoFinal && anioInicial <= lista.get(i).getAnio() && lista.get(i).getAnio() <= anioFinal && precioInicial <= lista.get(i).getAnio() && lista.get(i).getPrecio() <=  precioFinal) {
+                    if( lista.get(i) instanceof Auto &&  recorridoInicial <= lista.get(i).getRecorrido()  &&  lista.get(i).getRecorrido()<= recorridoFinal && anioInicial <= lista.get(i).getAnio() && lista.get(i).getAnio() <= anioFinal && precioInicial <= lista.get(i).getPrecio() && lista.get(i).getPrecio() <=  precioFinal) {
                         listaFinal.add(lista.get(i));}}
         }
             
             
         if( tipo.equals("moto")){
                 for( int i=0; i< lista.size(); i++){
-                    if( lista.get(i) instanceof Moto &&  recorridoInicial <= lista.get(i).getRecorrido()  &&  lista.get(i).getRecorrido()<= recorridoFinal && anioInicial <= lista.get(i).getAnio() && lista.get(i).getAnio() <= anioFinal && precioInicial <= lista.get(i).getAnio() && lista.get(i).getPrecio() <=  precioFinal) {
+                    if( lista.get(i) instanceof Moto &&  recorridoInicial <= lista.get(i).getRecorrido()  &&  lista.get(i).getRecorrido()<= recorridoFinal && anioInicial <= lista.get(i).getAnio() && lista.get(i).getAnio() <= anioFinal && precioInicial <= lista.get(i).getPrecio() && lista.get(i).getPrecio() <=  precioFinal) {
                         listaFinal.add(lista.get(i));}}
         }
         
