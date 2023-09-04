@@ -10,7 +10,7 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="319.0" prefWidth="393.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ec.edu.espol.proyecto.cambio_claveController">
    <children>
-      <Label layoutX="147.0" layoutY="137.0" text="Cambio clave" textFill="#b695c0">
+      <Label layoutX="131.0" layoutY="137.0" text="Cambio de clave" textFill="#b695c0">
          <font>
             <Font size="18.0" />
          </font></Label>

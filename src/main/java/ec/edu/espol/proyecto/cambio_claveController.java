@@ -64,6 +64,15 @@ public class cambio_claveController implements Initializable {
         String claveAnterior = anterior.getText();
         String clave_nueva = null;
         String contrasenaHash = null;
+        if (nueva.getText().isBlank() || anterior.getText().isBlank()) {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setHeaderText(null);
+            alert.setTitle("ERROR");
+            alert.setContentText("Debe llenar la información solicitada.");
+            alert.showAndWait();
+        }
+        else{
+            
         try {
             contrasenaHash = toHexString(getSHA(claveAnterior));
         } catch (NoSuchAlgorithmException ex) {
@@ -98,6 +107,7 @@ public class cambio_claveController implements Initializable {
             }
         }
         Utilitaria.archivoSerializable("usuario.ser", listaUsuario);
+    }
     }
 
     @FXML

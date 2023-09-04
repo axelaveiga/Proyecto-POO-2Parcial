@@ -123,6 +123,14 @@ public class AutentificarController implements Initializable {
 
     @FXML
     private void confirmarUsuario(ActionEvent event) {
+         if (correo.getText().isBlank() || contrasena.getText().isBlank()) {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setHeaderText(null);
+            alert.setTitle("ERROR");
+            alert.setContentText("Debe llenar la información solicitada.");
+            alert.showAndWait();
+        } 
+         else{
         try {
             
             
@@ -165,5 +173,5 @@ public class AutentificarController implements Initializable {
             ex.printStackTrace();
         }
     }
-  
+    }
 }

@@ -51,6 +51,20 @@ public class PerfilController implements Initializable {
     private Button btRetroceder;
     @FXML
     private Button cla;
+    @FXML
+    private ImageView imageview40;
+
+    @FXML
+    private ImageView imageview41;
+
+    @FXML
+    private ImageView imageview42;
+
+    @FXML
+    private ImageView imageview43;
+
+    @FXML
+    private ImageView imageview44;
 
     /**
      * Initializes the controller class.
@@ -83,7 +97,19 @@ public class PerfilController implements Initializable {
          imageview28.setImage(image28);
          Image image29 = new Image("/imagenes/logoblanco.png");
          imageview29.setImage(image29);
+         Image image40 = new Image("/imagenes/apellido.png");
+         imageview40.setImage(image40);
+         Image image41 = new Image("/imagenes/apellido.png");
+         imageview41.setImage(image41);
+         Image image42 = new Image("/imagenes/correo.png");
+         imageview42.setImage(image42);
+         Image image43 = new Image("/imagenes/organizacion.png");
+         imageview43.setImage(image43);
+         Image image44 = new Image("/imagenes/cclave.png");
+         imageview44.setImage(image44);
+
          
+
     }
         @FXML
     private void retroceder(ActionEvent event) {

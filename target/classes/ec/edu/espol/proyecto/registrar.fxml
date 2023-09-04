@@ -2,6 +2,7 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -16,7 +17,6 @@
             <TextField fx:id="correo" layoutX="126.0" layoutY="362.0" promptText="Correo" style="-fx-background-color: transparent; -fx-border-color: #b695c0; -fx-border-width: 0px 0px 2px 0px;" />
             <TextField fx:id="apellido" layoutX="126.0" layoutY="313.0" promptText="Apellidos" style="-fx-background-color: transparent; -fx-border-color: #b695c0; -fx-border-width: 0px 0px 2px 0px;" />
             <TextField fx:id="nombre" layoutX="126.0" layoutY="263.0" promptText="Nombres" style="-fx-background-color: transparent; -fx-border-color: #b695c0; -fx-border-width: 0px 0px 2px 0px;" />
-            <TextField fx:id="clave" layoutX="126.0" layoutY="455.0" promptText="Clave" style="-fx-background-color: transparent; -fx-border-color: #b695c0; -fx-border-width: 0px 0px 2px 0px;" />
             <TextField fx:id="organizacion" layoutX="126.0" layoutY="409.0" promptText="Organización" style="-fx-background-color: transparent; -fx-border-color: #b695c0; -fx-border-width: 0px 0px 2px 0px;" />
             <Button fx:id="btConfirmarRegistro" layoutX="155.0" layoutY="509.0" mnemonicParsing="false" onAction="#confirmarRegistro" prefHeight="40.0" prefWidth="102.0" style="-fx-background-color: #b695c0;" text="Registrar" textFill="WHITE">
                <font>
@@ -42,6 +42,7 @@
                   <Font name="MS Outlook" size="30.0" />
                </font>
             </Label>
+            <PasswordField fx:id="clave" layoutX="126.0" layoutY="455.0" promptText="Clave" style="-fx-background-color: transparent; -fx-border-color: #b695c0; -fx-border-width: 0px 0px 2px 0px;" />
          </children>
       </AnchorPane>
    </center>

@@ -20,51 +20,78 @@
                   </Label>
                </children>
             </AnchorPane>
-            <Label layoutX="67.0" layoutY="50.0" text="Nombre:" textFill="#b695c0">
+            <Label layoutX="78.0" layoutY="52.0" text="Nombre:" textFill="#b695c0">
                <font>
                   <Font name="System Bold" size="18.0" />
                </font>
             </Label>
-            <Label fx:id="nombreR" layoutX="152.0" layoutY="51.0">
+            <Label fx:id="nombreR" layoutX="163.0" layoutY="50.0" style="-fx-border-color: #b695c0; -fx-border-width: 0px 0px 2px 0px;">
                <font>
                   <Font size="18.0" />
                </font>
             </Label>
-            <Label layoutX="68.0" layoutY="83.0" text="Apellido:" textFill="#b695c0">
+            <Label layoutX="79.0" layoutY="97.0" text="Apellido:" textFill="#b695c0">
                <font>
                   <Font name="System Bold" size="18.0" />
                </font>
             </Label>
-            <Label fx:id="apellidoR" layoutX="155.0" layoutY="84.0">
+            <Label fx:id="apellidoR" layoutX="165.0" layoutY="95.0" style="-fx-border-color: #b695c0; -fx-border-width: 0px 0px 2px 0px;">
                <font>
                   <Font size="18.0" />
                </font>
             </Label>
-            <Label layoutX="83.0" layoutY="114.0" text="Correo:" textFill="#b695c0">
+            <Label layoutX="80.0" layoutY="137.0" text="Correo:" textFill="#b695c0">
                <font>
                   <Font name="System Bold" size="18.0" />
                </font>
             </Label>
-            <Label fx:id="correoR" layoutX="156.0" layoutY="115.0">
+            <Label fx:id="correoR" layoutX="153.0" layoutY="135.0" style="-fx-border-color: #b695c0; -fx-border-width: 0px 0px 2px 0px;">
                <font>
                   <Font size="18.0" />
                </font>
             </Label>
-            <Label layoutX="32.0" layoutY="143.0" text="Organización:" textFill="#b695c0">
+            <Label layoutX="78.0" layoutY="178.0" text="Organización:" textFill="#b695c0">
                <font>
                   <Font name="System Bold" size="18.0" />
                </font>
             </Label>
-            <Label fx:id="organizacionR" layoutX="158.0" layoutY="144.0">
+            <Label fx:id="organizacionR" layoutX="205.0" layoutY="176.0" style="-fx-border-color: #b695c0; -fx-border-width: 0px 0px 2px 0px;">
                <font>
                   <Font size="18.0" />
                </font>
             </Label>
-            <Button fx:id="cla" layoutX="408.0" layoutY="158.0" mnemonicParsing="false" onAction="#clave" prefHeight="47.0" prefWidth="149.0" style="-fx-background-color: transparent;" text="Cambiar clave" textFill="#b695c0">
+            <Button fx:id="cla" layoutX="486.0" layoutY="122.0" mnemonicParsing="false" onAction="#clave" prefHeight="85.0" prefWidth="91.0" style="-fx-background-color: transparent;" textFill="#b695c0">
                <font>
-                  <Font size="18.0" />
+                  <Font name="System Bold" size="18.0" />
                </font>
+               <graphic>
+                  <ImageView fx:id="imageview44" fitHeight="73.0" fitWidth="88.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../../../../../../../cclave.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
             </Button>
+            <ImageView fx:id="imageview40" fitHeight="21.0" fitWidth="23.0" layoutX="50.0" layoutY="54.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../../../../../../../../../Downloads/apellido.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="imageview41" fitHeight="21.0" fitWidth="23.0" layoutX="50.0" layoutY="99.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../../../../../../../../../Downloads/apellido.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="imageview42" fitHeight="21.0" fitWidth="23.0" layoutX="50.0" layoutY="142.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../../../../../../../../../Downloads/correo.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="imageview43" fitHeight="21.0" fitWidth="23.0" layoutX="51.0" layoutY="179.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../../../../../../../../../Downloads/organizacion.png" />
+               </image>
+            </ImageView>
          </children>
       </AnchorPane>
       <ImageView fx:id="imageview28" fitHeight="128.0" fitWidth="122.0" layoutX="238.0" layoutY="30.0" pickOnBounds="true" preserveRatio="true">

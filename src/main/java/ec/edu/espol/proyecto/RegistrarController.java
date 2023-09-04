@@ -18,6 +18,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -41,7 +42,7 @@ public class RegistrarController implements Initializable {
     @FXML
     private TextField organizacion;
     @FXML
-    private TextField clave;
+    private PasswordField clave;
     @FXML
     private Button btRetroceder;
     @FXML
@@ -106,8 +107,8 @@ public class RegistrarController implements Initializable {
         
         Persona usuario = new Persona( nombre.getText(), apellido.getText(),  organizacion.getText(),correo.getText(), clave.getText());
         
-        if( nombre.getText().equals("") || apellido.getText().equals("") ||  organizacion.getText().equals("") ||correo.getText().equals("") ||clave.getText().equals("")){
-            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        if( nombre.getText().equals("") || apellido.getText().equals("") ||  organizacion.getText().equals("") ||correo.getText().equals("") ||clave.getText().isBlank()){
+            Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setHeaderText(null);
             alert.setTitle("Info");
             alert.setContentText("Llenar Todos los campos");
