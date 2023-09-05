@@ -134,6 +134,22 @@ public class Utilitaria {
         }
 
     }
+    //Metodo que Serializa Ofertas cuack
+    public static void archivoOfertasSerializable(String nombre, ArrayList<Oferta> lista) {
+        try {
+            FileOutputStream file = new FileOutputStream(nombre);
+            ObjectOutputStream salida = new ObjectOutputStream(file);
+            salida.writeObject(lista);
+            salida.flush();
+
+        } catch (FileNotFoundException ex) {
+            ex.printStackTrace();
+        } catch (IOException ex) {
+            ex.printStackTrace();
+        }
+
+    }
+    
     
     public static void archivoListaSerializable(String nombre, ArrayList<Vehiculo> lista) {
         try {
