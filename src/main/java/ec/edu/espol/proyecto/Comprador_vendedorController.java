@@ -34,6 +34,8 @@ public class Comprador_vendedorController implements Initializable {
     @FXML
     private Button bvender;
     @FXML
+    private Button compra;
+    @FXML
     private Button bperfil;
 
     /**
@@ -58,6 +60,27 @@ public class Comprador_vendedorController implements Initializable {
             stage.show();
 
             Stage mystage = (Stage) this.bvender.getScene().getWindow();
+            mystage.close();
+
+        } catch (IOException ex) {
+            ex.printStackTrace();
+        }
+   
+
+    }
+        @FXML
+    private void ir_comprador(ActionEvent event) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/ec/edu/espol/proyecto/menu_comprador.fxml"));
+            Parent root = loader.load();
+
+            Scene scene = new Scene(root);
+            Stage stage = new Stage();
+
+            stage.setScene(scene);
+            stage.show();
+
+            Stage mystage = (Stage) this.compra.getScene().getWindow();
             mystage.close();
 
         } catch (IOException ex) {

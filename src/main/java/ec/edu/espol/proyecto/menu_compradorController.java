@@ -1,6 +1,6 @@
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/javafx/FXMLController.java to edit this template
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package ec.edu.espol.proyecto;
 
@@ -14,20 +14,15 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.control.RadioButton;
-import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.input.MouseEvent;
-import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 /**
- * FXML Controller class
  *
  * @author dayan
  */
-public class Menu_vehiculoController implements Initializable {
+public class menu_compradorController implements Initializable{
 
     @FXML
     private Button btbuscar;
@@ -53,9 +48,9 @@ public class Menu_vehiculoController implements Initializable {
     }
 
     @FXML
-    private void aceptaroferta(ActionEvent event) {
+    private void buscar_vehiculo(ActionEvent event) {
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/ec/edu/espol/proyecto/Ofertas.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/ec/edu/espol/proyecto/buscar_vehiculo.fxml"));
             Parent root = loader.load();
 
             Scene scene = new Scene(root);
@@ -74,7 +69,7 @@ public class Menu_vehiculoController implements Initializable {
     }
 
     @FXML
-    private void registrar_vehiculo() {
+    private void haceroferta() {
         
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/ec/edu/espol/proyecto/registrar_vehiculo.fxml"));
@@ -118,9 +113,9 @@ public class Menu_vehiculoController implements Initializable {
 
     @FXML
     private void mostrarImagen() {
-        Image image10 = new Image("/imagenes/vo.png");
+        Image image10 = new Image("/imagenes/BV.png");
         imageview10.setImage(image10);
-        Image image11 = new Image("/imagenes/Registar vehiculo.png");
+        Image image11 = new Image("/imagenes/ho.png");
         imageview11.setImage(image11);
         Image image26 = new Image("/imagenes/flechab.png");
         imageview26.setImage(image26);

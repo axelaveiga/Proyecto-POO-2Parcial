@@ -145,7 +145,7 @@ public class Buscar_vehiculoController implements Initializable {
     @FXML
     private void retroceder(ActionEvent event) {
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/ec/edu/espol/proyecto/menu_vehiculo.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/ec/edu/espol/proyecto/menu_comprador.fxml"));
             Parent root = loader.load();
 
             Scene scene = new Scene(root);

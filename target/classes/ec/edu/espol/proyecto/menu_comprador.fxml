@@ -5,7 +5,7 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="450.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ec.edu.espol.proyecto.Menu_vehiculoController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="450.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ec.edu.espol.proyecto.menu_compradorController">
    <children>
       <AnchorPane prefHeight="300.0" prefWidth="450.0" style="-fx-background-color: #b695c0;">
          <children>
@@ -18,22 +18,22 @@
                   </ImageView>
                </graphic>
             </Button>
-            <Button fx:id="btbuscar" layoutX="114.0" layoutY="39.0" mnemonicParsing="false" onAction="#aceptaroferta" prefHeight="173.0" prefWidth="220.0" style="-fx-background-color: transparent;">
+            <Button fx:id="btbuscar" layoutX="75.0" layoutY="72.0" mnemonicParsing="false" onAction="#buscar_vehiculo" prefHeight="173.0" prefWidth="220.0" style="-fx-background-color: transparent;">
                <graphic>
-                  <ImageView fx:id="imageview10" fitHeight="230.0" fitWidth="341.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="imageview10" fitHeight="211.0" fitWidth="314.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../../../../../../../../../vo.png" />
+                        <Image url="@../../../../../../../../../BV.png" />
                      </image>
                   </ImageView>
                </graphic>
             </Button>
          </children>
       </AnchorPane>
-      <Button layoutX="70.0" layoutY="312.0" mnemonicParsing="false" onAction="#registrar_vehiculo" prefHeight="256.0" prefWidth="281.0" style="-fx-background-color: transparent;">
+      <Button layoutX="85.0" layoutY="311.0" mnemonicParsing="false" onAction="#haceroferta" prefHeight="256.0" prefWidth="281.0" style="-fx-background-color: transparent;">
          <graphic>
-            <ImageView fx:id="imageview11" fitHeight="211.0" fitWidth="314.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="imageview11" fitHeight="167.0" fitWidth="237.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../../../../../../../../Registar%20vehiculo.png" />
+                  <Image url="@../../../../../../../../../ho.png" />
                </image>
             </ImageView>
          </graphic>
