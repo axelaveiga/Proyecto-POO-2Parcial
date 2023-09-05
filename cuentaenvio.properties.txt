@@ -1,0 +1,3 @@
+Emisor
+prop.correo=smorales508@gmail.com
+prop.clave=vqcjjtkaxcjczhaz
