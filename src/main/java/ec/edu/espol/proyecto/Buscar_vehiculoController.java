@@ -29,6 +29,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
 /**
@@ -40,6 +41,7 @@ public class Buscar_vehiculoController implements Initializable {
 
     @FXML
     private Button btRetroceder;
+    Integer index;
 
     @FXML
     private Button btBuscar;
@@ -112,8 +114,9 @@ public class Buscar_vehiculoController implements Initializable {
     private ObservableList<Vehiculo> filtrovehiculos;
     @FXML
     private ComboBox<String> tipo;
-    
+
     public static Vehiculo vehiculo;
+
     /**
      * Initializes the controller class.
      *
@@ -198,7 +201,7 @@ public class Buscar_vehiculoController implements Initializable {
             for (Vehiculo p : listaVehiculoFiltrada) {
                 tabla.getItems().add(p);
             }
-            vehiculo = (Vehiculo)tabla.getSelectionModel().getSelectedItem();
+            vehiculo = (Vehiculo) tabla.getSelectionModel().getSelectedItem();
         } catch (NumberFormatException ex) {
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setHeaderText(null);
@@ -275,6 +278,24 @@ public class Buscar_vehiculoController implements Initializable {
         for (Vehiculo p : listaFiltrada) {
 
             tabla.getItems().add(p);
+        }
+
+    }
+
+    @FXML
+    void getItem(MouseEvent event) {
+        index = tabla.getSelectionModel().getSelectedIndex();
+
+        if (index <= -1) {
+            return;
+        }
+
+        ArrayList<Vehiculo> listaVehiculo = Utilitaria.vehiculoSerializable("placa.ser");
+
+        for (Vehiculo v : listaVehiculo) {
+            if (v.getPlaca().equals(placaColumna.getCellData(index))) {
+                vehiculo = v;
+            }
         }
 
     }

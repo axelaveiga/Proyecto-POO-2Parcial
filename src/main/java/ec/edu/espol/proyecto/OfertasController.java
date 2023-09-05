@@ -17,16 +17,23 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
+import javafx.event.ActionEvent;
 import javafx.event.Event;
 import javafx.event.EventType;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
+import javafx.scene.control.Button;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 import javafx.scene.text.TextAlignment;
+import javafx.stage.Stage;
 
 /**
  * FXML Controller class
@@ -39,12 +46,22 @@ public class OfertasController implements Initializable {
     private VBox vbox;
     @FXML
     private VBox datos;
+    @FXML
+    private Button btRetroceder;
+
+    @FXML
+    private ImageView imageview15;
+
+    @FXML
+    private ImageView imageview16;
+
 
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        mostrarImagen();
         try (ObjectInputStream ofertas = new ObjectInputStream(new FileInputStream("ofertas.ser"))) {
             ArrayList<Oferta> ofertasT = (ArrayList<Oferta>) ofertas.readObject();
             Oferta.ordernarOfertas(ofertasT);
@@ -117,4 +134,33 @@ public class OfertasController implements Initializable {
 
     }
 }
+    @FXML
+    private void retroceder(ActionEvent event) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/ec/edu/espol/proyecto/menu_vehiculo.fxml"));
+            Parent root = loader.load();
+
+            Scene scene = new Scene(root);
+            Stage stage = new Stage();
+
+            stage.setScene(scene);
+            stage.show();
+
+            Stage mystage = (Stage) this.btRetroceder.getScene().getWindow();
+            mystage.close();
+
+        } catch (IOException ex) {
+            ex.printStackTrace();
+        }
+    }
+    @FXML
+    private void mostrarImagen() {
+        Image image15 = new Image("/imagenes/flecha.png");
+        imageview15.setImage(image15);
+        Image image16 = new Image("/imagenes/rosalogo.png");
+        imageview16.setImage(image16);
+
+
+    }
+
 }

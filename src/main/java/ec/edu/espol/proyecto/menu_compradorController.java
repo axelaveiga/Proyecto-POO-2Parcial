@@ -72,7 +72,7 @@ public class menu_compradorController implements Initializable{
     private void haceroferta() {
         
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/ec/edu/espol/proyecto/registrar_vehiculo.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/ec/edu/espol/proyecto/hacerOfertas.fxml"));
             Parent root = loader.load();
 
             Scene scene = new Scene(root);

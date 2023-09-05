@@ -12,7 +12,7 @@
 
 <AnchorPane id="AnchorPane" prefHeight="556.0" prefWidth="835.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ec.edu.espol.proyecto.Buscar_vehiculoController">
    <children>
-      <TableView fx:id="tabla" layoutX="-2.0" layoutY="224.0" prefHeight="394.0" prefWidth="837.0">
+      <TableView fx:id="tabla" layoutX="-2.0" layoutY="224.0" onMouseClicked="#getItem" prefHeight="394.0" prefWidth="837.0">
          <columns>
             <TableColumn fx:id="placaColumna" prefWidth="61.0" text="Placa" />
             <TableColumn fx:id="marcaColumna" prefWidth="65.0" text="Marca" />
@@ -54,5 +54,6 @@
       <TextField fx:id="precioFinal" layoutX="499.0" layoutY="135.0" promptText="Fin" />
       <Button layoutX="474.0" layoutY="182.0" mnemonicParsing="false" onAction="#buscar_vehiculo" text="Buscar" />
       <ComboBox fx:id="tipo" layoutX="102.0" layoutY="88.0" prefWidth="150.0" />
+      <Label layoutX="6.0" layoutY="205.0" text="(Hacer click en el elemento para hacer oferta e ir a hacer oferta para la confirmación)" />
    </children>
 </AnchorPane>

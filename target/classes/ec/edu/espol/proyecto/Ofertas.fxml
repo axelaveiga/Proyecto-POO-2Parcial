@@ -3,29 +3,51 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ec.edu.espol.proyecto.OfertasController">
-   <left>
-      <ScrollPane nodeOrientation="RIGHT_TO_LEFT" prefHeight="400.0" prefWidth="293.0" vbarPolicy="ALWAYS" BorderPane.alignment="CENTER">
-         <content>
-            <VBox fx:id="vbox" prefHeight="179.0" prefWidth="277.0" />
-         </content>
-      </ScrollPane>
-   </left>
-   <right>
-      <VBox prefHeight="400.0" prefWidth="308.0" BorderPane.alignment="CENTER">
-         <children>
-            <Label prefHeight="69.0" prefWidth="158.0" text="Lista de Ofertas" textAlignment="CENTER" translateX="80.0" translateY="70.0">
-               <font>
-                  <Font size="22.0" />
-               </font>
-            </Label>
-            <Button mnemonicParsing="false" onMouseClicked="#AceptarOferta" text="Aceptar Oferta" translateX="110.0" translateY="100.0" />
-            <VBox fx:id="datos" prefHeight="127.0" prefWidth="307.0" translateY="150.0" />
-         </children>
-      </VBox>
-   </right>
-</BorderPane>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="507.0" prefWidth="602.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ec.edu.espol.proyecto.OfertasController">
+   <children>
+      <BorderPane layoutY="98.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0">
+         <left>
+            <ScrollPane nodeOrientation="RIGHT_TO_LEFT" prefHeight="400.0" prefWidth="293.0" vbarPolicy="ALWAYS" BorderPane.alignment="CENTER">
+               <content>
+                  <VBox fx:id="vbox" prefHeight="179.0" prefWidth="277.0" />
+               </content>
+            </ScrollPane>
+         </left>
+         <right>
+            <VBox prefHeight="400.0" prefWidth="308.0" BorderPane.alignment="CENTER">
+               <children>
+                  <Label prefHeight="69.0" prefWidth="158.0" text="Lista de Ofertas" textAlignment="CENTER" translateX="80.0" translateY="70.0">
+                     <font>
+                        <Font size="22.0" />
+                     </font>
+                  </Label>
+                  <Button mnemonicParsing="false" onMouseClicked="#AceptarOferta" style="-fx-background-color: #b695c0;" text="Aceptar Oferta" textFill="WHITE" translateX="110.0" translateY="100.0" />
+                  <VBox fx:id="datos" prefHeight="127.0" prefWidth="307.0" translateY="150.0" />
+               </children>
+            </VBox>
+         </right>
+      </BorderPane>
+      <Button fx:id="btRetroceder" layoutX="14.0" layoutY="22.0" mnemonicParsing="false" onAction="#retroceder" prefHeight="58.0" prefWidth="84.0" style="-fx-background-color: transparent;">
+         <graphic>
+            <ImageView fx:id="imageview15" fitHeight="58.0" fitWidth="71.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../../../../../../../flecha.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+      <ImageView fx:id="imageview16" fitHeight="79.0" fitWidth="97.0" layoutX="497.0" layoutY="7.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../../../../../../../../../Downloads/rosalogo.png" />
+         </image>
+      </ImageView>
+   </children>
+</AnchorPane>

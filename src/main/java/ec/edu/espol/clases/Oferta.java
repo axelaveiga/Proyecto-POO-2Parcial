@@ -4,13 +4,14 @@
  */
 package ec.edu.espol.clases;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 /**
  *
  * @author Axel
  */
-public class Oferta {
+public class Oferta implements Serializable {
     private Persona persona;
     private Vehiculo vehiculo;
     private double precio;
