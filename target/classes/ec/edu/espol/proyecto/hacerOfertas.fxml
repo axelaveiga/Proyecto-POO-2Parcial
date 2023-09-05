@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ec.edu.espol.proyecto.HacerOfertasController">
+   <children>
+      <Label layoutX="104.0" layoutY="192.0" text="Cuánto desea ofertar?" />
+      <Label layoutX="139.0" layoutY="123.0" text="Vehiculo" />
+      <TextField fx:id="precioOferta" layoutX="239.0" layoutY="188.0" />
+      <Label fx:id="textoVehiculo" alignment="CENTER" layoutX="254.0" layoutY="110.0" prefHeight="43.0" prefWidth="117.0" text="Label" textAlignment="CENTER" />
+      <Button layoutX="259.0" layoutY="302.0" mnemonicParsing="false" onAction="#COferta" text="Confirmar Oferta" />
+   </children>
+</AnchorPane>

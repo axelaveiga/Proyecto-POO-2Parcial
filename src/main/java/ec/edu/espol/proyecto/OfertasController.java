@@ -94,7 +94,8 @@ public class OfertasController implements Initializable {
     @FXML
     private void AceptarOferta(MouseEvent event) {
         if(datos.getChildren().isEmpty()){
-            System.out.println("Seleccione alguna oferta disponible");
+            Alert a = new Alert(Alert.AlertType.ERROR, "Seleccione alguna oferta disponible");
+            a.show();
         }else{  
             try (ObjectInputStream ofertas = new ObjectInputStream(new FileInputStream("ofertas.ser"))) {
             

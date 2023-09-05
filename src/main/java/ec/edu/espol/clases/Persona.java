@@ -105,16 +105,32 @@ public class Persona implements Serializable{
         
         String lineToRemove = null;
         ArrayList<Vehiculo> veh= new ArrayList<>();
+        
         try (ObjectInputStream sc = new ObjectInputStream(new FileInputStream("placa.ser"))) {
                  veh = (ArrayList<Vehiculo>) sc.readObject();
                 for(Vehiculo v: veh){
                     if(ofer.getVehiculo().getPlaca().equals(v.getPlaca())){
                         veh.remove(v);
+                        Utilitaria.archivoListaSerializable("placa.ser", veh);
                     }
                         
                 }
+         
             
             
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+        ArrayList<Oferta> ofertass= new ArrayList<>();
+        try (ObjectInputStream sc = new ObjectInputStream(new FileInputStream("ofertas.ser"))) {
+                 ofertass = (ArrayList<Oferta>) sc.readObject();
+                for(Oferta of: ofertass){
+                    if(ofer.getPersona().equals(of.getPersona())){
+                        ofertass.remove(of);
+                        Utilitaria.archivoOfertasSerializable("ofertas.ser", ofertass);
+                    }                       
+                }
+
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }

@@ -112,7 +112,8 @@ public class Buscar_vehiculoController implements Initializable {
     private ObservableList<Vehiculo> filtrovehiculos;
     @FXML
     private ComboBox<String> tipo;
-
+    
+    public static Vehiculo vehiculo;
     /**
      * Initializes the controller class.
      *
@@ -197,7 +198,7 @@ public class Buscar_vehiculoController implements Initializable {
             for (Vehiculo p : listaVehiculoFiltrada) {
                 tabla.getItems().add(p);
             }
-
+            vehiculo = (Vehiculo)tabla.getSelectionModel().getSelectedItem();
         } catch (NumberFormatException ex) {
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setHeaderText(null);

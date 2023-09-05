@@ -48,7 +48,7 @@ public class App extends Application {
             
         }
         
-        scene = new Scene(loadFXML("Proyecto"), 300, 400);
+        scene = new Scene(loadFXML("buscar_vehiculo"), 300, 400);
         stage.setScene(scene);
         stage.show();
         
